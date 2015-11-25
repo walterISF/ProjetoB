@@ -57,19 +57,19 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.LBL_1 = new System.Windows.Forms.Label();
+            this.TXT_1 = new System.Windows.Forms.TextBox();
+            this.LB_registros = new System.Windows.Forms.ListBox();
+            this.TXT_2 = new System.Windows.Forms.TextBox();
+            this.LBL_2 = new System.Windows.Forms.Label();
+            this.TXT_3 = new System.Windows.Forms.TextBox();
+            this.LBL_3 = new System.Windows.Forms.Label();
+            this.TXT_4 = new System.Windows.Forms.TextBox();
+            this.LBL_4 = new System.Windows.Forms.Label();
+            this.TXT_5 = new System.Windows.Forms.TextBox();
+            this.LBL_5 = new System.Windows.Forms.Label();
+            this.TXT_6 = new System.Windows.Forms.TextBox();
+            this.LBL_6 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -169,6 +169,7 @@
             this.BTN_Compra.Size = new System.Drawing.Size(46, 38);
             this.BTN_Compra.TabIndex = 6;
             this.BTN_Compra.UseVisualStyleBackColor = true;
+            this.BTN_Compra.Click += new System.EventHandler(this.BTN_Compra_Click);
             // 
             // BTN_addProduto
             // 
@@ -181,7 +182,7 @@
             this.BTN_addProduto.Size = new System.Drawing.Size(46, 38);
             this.BTN_addProduto.TabIndex = 7;
             this.BTN_addProduto.UseVisualStyleBackColor = true;
-            this.BTN_addProduto.Click += new System.EventHandler(this.button2_Click);
+            this.BTN_addProduto.Click += new System.EventHandler(this.BTN_addProduto_Click);
             // 
             // BTN_addCliente
             // 
@@ -194,7 +195,7 @@
             this.BTN_addCliente.Size = new System.Drawing.Size(46, 38);
             this.BTN_addCliente.TabIndex = 8;
             this.BTN_addCliente.UseVisualStyleBackColor = true;
-            this.BTN_addCliente.Click += new System.EventHandler(this.button3_Click);
+            this.BTN_addCliente.Click += new System.EventHandler(this.BTN_addCliente_Click);
             // 
             // label1
             // 
@@ -353,110 +354,107 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
-            // label8
+            // LBL_1
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 186);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 17);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "label8";
+            this.LBL_1.AutoSize = true;
+            this.LBL_1.Location = new System.Drawing.Point(59, 163);
+            this.LBL_1.Name = "LBL_1";
+            this.LBL_1.Size = new System.Drawing.Size(0, 17);
+            this.LBL_1.TabIndex = 15;
             // 
-            // textBox1
+            // TXT_1
             // 
-            this.textBox1.Location = new System.Drawing.Point(60, 183);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(165, 24);
-            this.textBox1.TabIndex = 16;
+            this.TXT_1.Location = new System.Drawing.Point(60, 183);
+            this.TXT_1.Name = "TXT_1";
+            this.TXT_1.Size = new System.Drawing.Size(217, 24);
+            this.TXT_1.TabIndex = 16;
             // 
-            // listBox1
+            // LB_registros
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 17;
-            this.listBox1.Location = new System.Drawing.Point(12, 426);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(602, 157);
-            this.listBox1.TabIndex = 17;
+            this.LB_registros.ColumnWidth = 5;
+            this.LB_registros.FormattingEnabled = true;
+            this.LB_registros.HorizontalScrollbar = true;
+            this.LB_registros.ItemHeight = 17;
+            this.LB_registros.Location = new System.Drawing.Point(12, 426);
+            this.LB_registros.MultiColumn = true;
+            this.LB_registros.Name = "LB_registros";
+            this.LB_registros.Size = new System.Drawing.Size(602, 157);
+            this.LB_registros.TabIndex = 17;
             // 
-            // textBox2
+            // TXT_2
             // 
-            this.textBox2.Location = new System.Drawing.Point(60, 230);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(165, 24);
-            this.textBox2.TabIndex = 19;
+            this.TXT_2.Location = new System.Drawing.Point(60, 242);
+            this.TXT_2.Name = "TXT_2";
+            this.TXT_2.Size = new System.Drawing.Size(217, 24);
+            this.TXT_2.TabIndex = 19;
             // 
-            // label9
+            // LBL_2
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 233);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(42, 17);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "label9";
+            this.LBL_2.AutoSize = true;
+            this.LBL_2.Location = new System.Drawing.Point(59, 222);
+            this.LBL_2.Name = "LBL_2";
+            this.LBL_2.Size = new System.Drawing.Size(0, 17);
+            this.LBL_2.TabIndex = 18;
             // 
-            // textBox3
+            // TXT_3
             // 
-            this.textBox3.Location = new System.Drawing.Point(60, 276);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(165, 24);
-            this.textBox3.TabIndex = 21;
+            this.TXT_3.Location = new System.Drawing.Point(60, 298);
+            this.TXT_3.Name = "TXT_3";
+            this.TXT_3.Size = new System.Drawing.Size(217, 24);
+            this.TXT_3.TabIndex = 21;
             // 
-            // label10
+            // LBL_3
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 279);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 17);
-            this.label10.TabIndex = 20;
-            this.label10.Text = "label10";
+            this.LBL_3.AutoSize = true;
+            this.LBL_3.Location = new System.Drawing.Point(59, 278);
+            this.LBL_3.Name = "LBL_3";
+            this.LBL_3.Size = new System.Drawing.Size(0, 17);
+            this.LBL_3.TabIndex = 20;
             // 
-            // textBox4
+            // TXT_4
             // 
-            this.textBox4.Location = new System.Drawing.Point(363, 183);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(165, 24);
-            this.textBox4.TabIndex = 23;
+            this.TXT_4.Location = new System.Drawing.Point(363, 183);
+            this.TXT_4.Name = "TXT_4";
+            this.TXT_4.Size = new System.Drawing.Size(215, 24);
+            this.TXT_4.TabIndex = 23;
             // 
-            // label11
+            // LBL_4
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(315, 186);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(49, 17);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "label11";
+            this.LBL_4.AutoSize = true;
+            this.LBL_4.Location = new System.Drawing.Point(362, 163);
+            this.LBL_4.Name = "LBL_4";
+            this.LBL_4.Size = new System.Drawing.Size(0, 17);
+            this.LBL_4.TabIndex = 22;
             // 
-            // textBox5
+            // TXT_5
             // 
-            this.textBox5.Location = new System.Drawing.Point(363, 230);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(165, 24);
-            this.textBox5.TabIndex = 25;
+            this.TXT_5.Location = new System.Drawing.Point(363, 242);
+            this.TXT_5.Name = "TXT_5";
+            this.TXT_5.Size = new System.Drawing.Size(215, 24);
+            this.TXT_5.TabIndex = 25;
             // 
-            // label12
+            // LBL_5
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(315, 233);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(49, 17);
-            this.label12.TabIndex = 24;
-            this.label12.Text = "label12";
+            this.LBL_5.AutoSize = true;
+            this.LBL_5.Location = new System.Drawing.Point(362, 222);
+            this.LBL_5.Name = "LBL_5";
+            this.LBL_5.Size = new System.Drawing.Size(0, 17);
+            this.LBL_5.TabIndex = 24;
             // 
-            // textBox6
+            // TXT_6
             // 
-            this.textBox6.Location = new System.Drawing.Point(363, 276);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(165, 24);
-            this.textBox6.TabIndex = 27;
+            this.TXT_6.Location = new System.Drawing.Point(363, 298);
+            this.TXT_6.Name = "TXT_6";
+            this.TXT_6.Size = new System.Drawing.Size(215, 24);
+            this.TXT_6.TabIndex = 27;
             // 
-            // label13
+            // LBL_6
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(315, 279);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(49, 17);
-            this.label13.TabIndex = 26;
-            this.label13.Text = "label13";
+            this.LBL_6.AutoSize = true;
+            this.LBL_6.Location = new System.Drawing.Point(362, 278);
+            this.LBL_6.Name = "LBL_6";
+            this.LBL_6.Size = new System.Drawing.Size(0, 17);
+            this.LBL_6.TabIndex = 26;
             // 
             // label14
             // 
@@ -474,19 +472,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 595);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.TXT_6);
+            this.Controls.Add(this.LBL_6);
+            this.Controls.Add(this.TXT_5);
+            this.Controls.Add(this.LBL_5);
+            this.Controls.Add(this.TXT_4);
+            this.Controls.Add(this.LBL_4);
+            this.Controls.Add(this.TXT_3);
+            this.Controls.Add(this.LBL_3);
+            this.Controls.Add(this.TXT_2);
+            this.Controls.Add(this.LBL_2);
+            this.Controls.Add(this.LB_registros);
+            this.Controls.Add(this.TXT_1);
+            this.Controls.Add(this.LBL_1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -541,19 +539,19 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ToolStripMenuItem bloquearUsuárioToolStripMenuItem;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label LBL_1;
+        private System.Windows.Forms.TextBox TXT_1;
+        private System.Windows.Forms.ListBox LB_registros;
+        private System.Windows.Forms.TextBox TXT_2;
+        private System.Windows.Forms.Label LBL_2;
+        private System.Windows.Forms.TextBox TXT_3;
+        private System.Windows.Forms.Label LBL_3;
+        private System.Windows.Forms.TextBox TXT_4;
+        private System.Windows.Forms.Label LBL_4;
+        private System.Windows.Forms.TextBox TXT_5;
+        private System.Windows.Forms.Label LBL_5;
+        private System.Windows.Forms.TextBox TXT_6;
+        private System.Windows.Forms.Label LBL_6;
         private System.Windows.Forms.Label label14;
     }
 }

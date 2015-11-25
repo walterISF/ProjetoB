@@ -62,17 +62,6 @@ namespace Projeto_B
         {
 
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void bloquearUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmBloq frmBloquear = new FrmBloq();
@@ -82,6 +71,49 @@ namespace Projeto_B
         private void button4_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void BTN_Compra_Click(object sender, EventArgs e)
+        {
+            LBL_1.Text = "Codigo";
+            LBL_2.Text = "Nome";
+            LBL_3.Text = "Preço";
+            LBL_4.Text = "Quantidade";
+            LBL_5.Text = "Sessão";
+            LBL_6.Text = "Descrição";
+
+            LB_registros.Items.AddRange(new object[] {
+            "Item 1, column 1",
+            "Item 2, column 1",
+            "Item 3, column 1",
+            "Item 4, column 1",
+            "Item 5, column 1",
+            "Item 1, column 2",
+            "Item 2, column 2",
+            "Item 3, column 2",
+            "Item 1, column 2",
+            "Item 2, column 2",
+            "Item 3, column 2"});
+        }
+
+        private void BTN_addProduto_Click(object sender, EventArgs e)
+        {
+            LBL_1.Text = "Codigo";
+            LBL_2.Text = "Codigo do Produto";
+            LBL_3.Text = "Codigo do Cliente";
+            LBL_4.Text = "Valor da Venda";
+            LBL_5.Text = "Data da Venda";
+            LBL_6.Text = "Descrição";
+        }
+
+        private void BTN_addCliente_Click(object sender, EventArgs e)
+        {
+            LBL_1.Text = "Codigo";
+            LBL_2.Text = "Nome";
+            LBL_3.Text = "Endereço";
+            LBL_4.Text = "Telefone";
+            LBL_5.Text = "CPF";
+            LBL_6.Text = "Descrição";
         }
 
     }
