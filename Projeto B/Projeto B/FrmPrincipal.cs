@@ -81,6 +81,7 @@ namespace Projeto_B
             LBL_5.Text = "Seção";
             LBL_6.Text = "Descrição";
 
+
             LB_registros.Items.AddRange(new object[] {
             "Item 1, column 1",
             "Item 2, column 1",
@@ -114,6 +115,22 @@ namespace Projeto_B
             LBL_5.Text = "CPF";
             LBL_6.Text = "Descrição";
         }
+
+        private void TXT_TextChanged(object sender, EventArgs e)
+        {
+            if (TXT_1.Text != "" && TXT_2.Text != "" && TXT_3.Text != "" && TXT_4.Text != "" && TXT_5.Text != "" && TXT_6.Text != "")
+            {
+                BTN_alterar.BackColor = SystemColors.Control;
+                GPB_incluir.BackColor = SystemColors.Control;
+            }
+
+            
+                BTN_excluir.BackColor = SystemColors.Control;
+                BTN_incluir.BackColor = SystemColors.Control;
+            
+            
+        }
+
 
     }
 }

@@ -47,13 +47,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.GPB_incluir = new System.Windows.Forms.GroupBox();
+            this.BTN_incluir = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.BTN_excluir = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.BTN_alterar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
@@ -71,11 +71,15 @@
             this.TXT_6 = new System.Windows.Forms.TextBox();
             this.LBL_6 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.GPB_excluir = new System.Windows.Forms.GroupBox();
+            this.GPB_alterar = new System.Windows.Forms.GroupBox();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.GPB_incluir.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.GPB_excluir.SuspendLayout();
+            this.GPB_alterar.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -241,91 +245,94 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
-            // groupBox2
+            // GPB_incluir
             // 
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(208, 31);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(190, 87);
-            this.groupBox2.TabIndex = 13;
-            this.groupBox2.TabStop = false;
+            this.GPB_incluir.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.GPB_incluir.Controls.Add(this.BTN_incluir);
+            this.GPB_incluir.Controls.Add(this.label6);
+            this.GPB_incluir.Location = new System.Drawing.Point(208, 31);
+            this.GPB_incluir.Name = "GPB_incluir";
+            this.GPB_incluir.Size = new System.Drawing.Size(75, 87);
+            this.GPB_incluir.TabIndex = 13;
+            this.GPB_incluir.TabStop = false;
             // 
-            // button1
+            // BTN_incluir
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(68, 18);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(46, 38);
-            this.button1.TabIndex = 7;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(65, 59);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Excluir";
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(2, 18);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(46, 38);
-            this.button2.TabIndex = 6;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(131, 59);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Alterar";
-            // 
-            // button3
-            // 
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(134, 18);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(46, 38);
-            this.button3.TabIndex = 8;
-            this.button3.UseVisualStyleBackColor = true;
+            this.BTN_incluir.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTN_incluir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTN_incluir.BackgroundImage")));
+            this.BTN_incluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BTN_incluir.Enabled = false;
+            this.BTN_incluir.FlatAppearance.BorderSize = 0;
+            this.BTN_incluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_incluir.Location = new System.Drawing.Point(19, 17);
+            this.BTN_incluir.Name = "BTN_incluir";
+            this.BTN_incluir.Size = new System.Drawing.Size(46, 38);
+            this.BTN_incluir.TabIndex = 6;
+            this.BTN_incluir.UseVisualStyleBackColor = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 59);
+            this.label6.Location = new System.Drawing.Point(20, 58);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 13);
             this.label6.TabIndex = 9;
             this.label6.Text = "Incluir";
             // 
+            // BTN_excluir
+            // 
+            this.BTN_excluir.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTN_excluir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTN_excluir.BackgroundImage")));
+            this.BTN_excluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BTN_excluir.Enabled = false;
+            this.BTN_excluir.FlatAppearance.BorderSize = 0;
+            this.BTN_excluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_excluir.Location = new System.Drawing.Point(15, 12);
+            this.BTN_excluir.Name = "BTN_excluir";
+            this.BTN_excluir.Size = new System.Drawing.Size(46, 38);
+            this.BTN_excluir.TabIndex = 7;
+            this.BTN_excluir.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(18, 58);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Excluir";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(16, 59);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Alterar";
+            // 
+            // BTN_alterar
+            // 
+            this.BTN_alterar.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTN_alterar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTN_alterar.BackgroundImage")));
+            this.BTN_alterar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BTN_alterar.Enabled = false;
+            this.BTN_alterar.FlatAppearance.BorderSize = 0;
+            this.BTN_alterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_alterar.Location = new System.Drawing.Point(15, 18);
+            this.BTN_alterar.Name = "BTN_alterar";
+            this.BTN_alterar.Size = new System.Drawing.Size(46, 38);
+            this.BTN_alterar.TabIndex = 8;
+            this.BTN_alterar.UseVisualStyleBackColor = false;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.button4);
-            this.groupBox3.Location = new System.Drawing.Point(404, 32);
+            this.groupBox3.Location = new System.Drawing.Point(471, 31);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(75, 86);
             this.groupBox3.TabIndex = 14;
@@ -367,7 +374,8 @@
             this.TXT_1.Location = new System.Drawing.Point(60, 183);
             this.TXT_1.Name = "TXT_1";
             this.TXT_1.Size = new System.Drawing.Size(217, 24);
-            this.TXT_1.TabIndex = 16;
+            this.TXT_1.TabIndex = 1;
+            this.TXT_1.TextChanged += new System.EventHandler(this.TXT_TextChanged);
             // 
             // LB_registros
             // 
@@ -386,7 +394,8 @@
             this.TXT_2.Location = new System.Drawing.Point(60, 242);
             this.TXT_2.Name = "TXT_2";
             this.TXT_2.Size = new System.Drawing.Size(217, 24);
-            this.TXT_2.TabIndex = 19;
+            this.TXT_2.TabIndex = 3;
+            this.TXT_2.TextChanged += new System.EventHandler(this.TXT_TextChanged);
             // 
             // LBL_2
             // 
@@ -401,7 +410,8 @@
             this.TXT_3.Location = new System.Drawing.Point(60, 298);
             this.TXT_3.Name = "TXT_3";
             this.TXT_3.Size = new System.Drawing.Size(217, 24);
-            this.TXT_3.TabIndex = 21;
+            this.TXT_3.TabIndex = 5;
+            this.TXT_3.TextChanged += new System.EventHandler(this.TXT_TextChanged);
             // 
             // LBL_3
             // 
@@ -416,7 +426,8 @@
             this.TXT_4.Location = new System.Drawing.Point(363, 183);
             this.TXT_4.Name = "TXT_4";
             this.TXT_4.Size = new System.Drawing.Size(215, 24);
-            this.TXT_4.TabIndex = 23;
+            this.TXT_4.TabIndex = 2;
+            this.TXT_4.TextChanged += new System.EventHandler(this.TXT_TextChanged);
             // 
             // LBL_4
             // 
@@ -431,7 +442,8 @@
             this.TXT_5.Location = new System.Drawing.Point(363, 242);
             this.TXT_5.Name = "TXT_5";
             this.TXT_5.Size = new System.Drawing.Size(215, 24);
-            this.TXT_5.TabIndex = 25;
+            this.TXT_5.TabIndex = 4;
+            this.TXT_5.TextChanged += new System.EventHandler(this.TXT_TextChanged);
             // 
             // LBL_5
             // 
@@ -446,7 +458,8 @@
             this.TXT_6.Location = new System.Drawing.Point(363, 298);
             this.TXT_6.Name = "TXT_6";
             this.TXT_6.Size = new System.Drawing.Size(215, 24);
-            this.TXT_6.TabIndex = 27;
+            this.TXT_6.TabIndex = 6;
+            this.TXT_6.TextChanged += new System.EventHandler(this.TXT_TextChanged);
             // 
             // LBL_6
             // 
@@ -466,11 +479,35 @@
             this.label14.TabIndex = 28;
             this.label14.Text = "Lista de Registros Cadastrados";
             // 
+            // GPB_excluir
+            // 
+            this.GPB_excluir.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.GPB_excluir.Controls.Add(this.BTN_excluir);
+            this.GPB_excluir.Controls.Add(this.label4);
+            this.GPB_excluir.Location = new System.Drawing.Point(377, 32);
+            this.GPB_excluir.Name = "GPB_excluir";
+            this.GPB_excluir.Size = new System.Drawing.Size(75, 85);
+            this.GPB_excluir.TabIndex = 29;
+            this.GPB_excluir.TabStop = false;
+            // 
+            // GPB_alterar
+            // 
+            this.GPB_alterar.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.GPB_alterar.Controls.Add(this.BTN_alterar);
+            this.GPB_alterar.Controls.Add(this.label5);
+            this.GPB_alterar.Location = new System.Drawing.Point(292, 33);
+            this.GPB_alterar.Name = "GPB_alterar";
+            this.GPB_alterar.Size = new System.Drawing.Size(75, 85);
+            this.GPB_alterar.TabIndex = 30;
+            this.GPB_alterar.TabStop = false;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 595);
+            this.Controls.Add(this.GPB_alterar);
+            this.Controls.Add(this.GPB_excluir);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.TXT_6);
             this.Controls.Add(this.LBL_6);
@@ -486,7 +523,7 @@
             this.Controls.Add(this.TXT_1);
             this.Controls.Add(this.LBL_1);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.GPB_incluir);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -501,10 +538,14 @@
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.GPB_incluir.ResumeLayout(false);
+            this.GPB_incluir.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.GPB_excluir.ResumeLayout(false);
+            this.GPB_excluir.PerformLayout();
+            this.GPB_alterar.ResumeLayout(false);
+            this.GPB_alterar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -528,12 +569,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox GPB_incluir;
+        private System.Windows.Forms.Button BTN_excluir;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BTN_incluir;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button BTN_alterar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label7;
@@ -553,5 +594,7 @@
         private System.Windows.Forms.TextBox TXT_6;
         private System.Windows.Forms.Label LBL_6;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox GPB_excluir;
+        private System.Windows.Forms.GroupBox GPB_alterar;
     }
 }
