@@ -20,9 +20,9 @@ namespace Projeto_B
        
         //--------------------------------------------------------------
 
-        public static string arqUser = @"c:/temp/arqUser.txt";
-        public static string arqMortoUser = @"c:/temp/arqMortoUser.txt";
-        public static string arqTmp = @"c:/temp/arqTmp.txt";
+        public static string arqUser = @"c:/temp/arqUser.dat";
+        public static string arqMortoUser = @"c:/temp/arqMortoUser.dat";
+        public static string arqTmp = @"c:/temp/arqTmp.dat";
         
         //CRUD Usuarios
 
@@ -49,7 +49,7 @@ namespace Projeto_B
             ler.Close();
             return "";
         }
-        public string lerUltimoUser(int i)
+        public string lerUltimoUser()
         {
             StreamReader ler = new StreamReader(arqUser);
             string aux = ler.ReadToEnd();
@@ -60,7 +60,7 @@ namespace Projeto_B
                 user = usuario[0].Split(';');
             else
                 user = usuario[usuario.Length - 2].Split(';');
-            return user[i];
+            return user[0];
         }  
         public bool bloquearUser(int codUser, string status)
         {
