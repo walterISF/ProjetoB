@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Projeto_B
 {
@@ -20,7 +21,30 @@ namespace Projeto_B
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-
+            if (File.Exists(@"c:/temp/arqUser.dat") == false)
+            {
+                FileStream a = File.Create(@"c:/temp/arqUser.dat");
+            }
+            if (File.Exists(@"c:/temp/arqMortoUser.dat") == false)
+            {
+                FileStream b = File.Create(@"c:/temp/arqMortoUser.dat");
+            }
+            if (File.Exists(@"c:/temp/arqClient.dat") == false)
+            {
+                FileStream c = File.Create(@"c:/temp/arqClient.dat");
+            }
+            if (File.Exists(@"c:/temp/arqMortoClient.dat") == false)
+            {
+                FileStream d = File.Create(@"c:/temp/arqMortoClient.dat");
+            }
+            if (File.Exists(@"c:/temp/arqProd.dat") == false)
+            {
+                FileStream f = File.Create(@"c:/temp/arqProd.dat");
+            }
+            if (File.Exists(@"c:/temp/arqMortoProd.dat") == false)
+            {
+                FileStream g = File.Create(@"c:/temp/arqMortoProd.dat");
+            }               
         }
 
         private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)

@@ -21,8 +21,13 @@ namespace Projeto_B
 
         private void FrmNovoUsuario_Load(object sender, EventArgs e)
         {
-            DateTime dataAtual = DateTime.Now;               
-            int codUser = int.Parse(user.lerUltimoUser())+1;
+            DateTime dataAtual = DateTime.Now;
+            int codUser;
+            if(user.lerUltimoUser() == "")
+                codUser = 900001;
+            else
+                codUser = int.Parse(user.lerUltimoUser())+1;
+
             LBL_codUsuario.Text = codUser.ToString();
             user.cod = int.Parse(LBL_codUsuario.Text);
             user.pswAtual = "Ini123";
@@ -60,7 +65,7 @@ namespace Projeto_B
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
            
-            int codUser = int.Parse(user.lerUltimoUser(0)) + 1;
+            int codUser = int.Parse(user.lerUltimoUser()) + 1;
             LBL_codUsuario.Text = codUser.ToString();
             TXT_nome.Text = "";
             TXT_nascimento.Text = "";

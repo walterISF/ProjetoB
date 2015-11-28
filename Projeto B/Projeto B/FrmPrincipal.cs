@@ -20,12 +20,11 @@ namespace Projeto_B
         {
             this.Focus();
             usuarioLogado usuario = new usuarioLogado();
-            int status = usuario.getPerfil();
+            int perfil = usuario.getPerfil();
 
-            if (status == 2 || status == 3)
+            if (perfil == 2 || perfil == 3)
             {
                 extraToolStripMenuItem.Visible = false;
-
             }
 
         }
@@ -79,7 +78,7 @@ namespace Projeto_B
             LBL_2.Text = "Nome";
             LBL_3.Text = "Preço";
             LBL_4.Text = "Quantidade";
-            LBL_5.Text = "Sessão";
+            LBL_5.Text = "Seção";
             LBL_6.Text = "Descrição";
 
             LB_registros.Items.AddRange(new object[] {

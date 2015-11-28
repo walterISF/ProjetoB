@@ -62,7 +62,7 @@ namespace Projeto_B
             StreamReader ler = new StreamReader(arqClient);
             string aux = ler.ReadToEnd();
             string[] usuario = aux.Split('\n');
-            string[] user = new string[8];
+            string[] user = new string[6];
             ler.Close();
             if (usuario.Length < 2)
                 user = usuario[0].Split(';');
