@@ -38,11 +38,27 @@ namespace Projeto_B
                 {
                     if(TXT_nsenha.Text != usrLogin.getPswAnterior())
                     {
-                        usuario.trocarSenha(int.Parse(LBL_usuario.Text), TXT_nsenha.Text);
-                        MessageBox.Show("Senha alterada com sucesso!", "Senha alterada",
-                                        MessageBoxButtons.OK,
-                                        MessageBoxIcon.Information);
-                        this.Close();
+                        if (MessageBox.Show("Confirma alteração de senha.", "Alterando senha...",
+                                            MessageBoxButtons.YesNo,
+                                            MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            usuario.trocarSenha(int.Parse(LBL_usuario.Text), TXT_nsenha.Text);
+                            MessageBox.Show("Senha alterada com sucesso!", "Senha alterada",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                        else
+                        {
+                            TXT_nsenha.Text = "";
+                            TXT_rnsenha.Text = "";
+                            LBL_forca.Text = "";
+                            LBL_n1.Visible = false;
+                            LBL_n2.Visible = false;
+                            LBL_n3.Visible = false;
+                            LBL_n4.Visible = false;
+                            LBL_n5.Visible = false;
+                        }
                     }
                     else
                     {
@@ -137,8 +153,7 @@ namespace Projeto_B
                 
                 if (verForca.sequenciaNumeros(TXT_nsenha.Text) != 0)
                 { 
-                    penaliza += verForca.sequenciaNumeros(TXT_nsenha.Text);
-                    MessageBox.Show(penaliza.ToString() + "\nsequenciaNumeros");
+                    penaliza += verForca.sequenciaNumeros(TXT_nsenha.Text);                    
                 }
                 
                 penaliza += verForca.qtdLetrasNumeros(TXT_nsenha.Text);

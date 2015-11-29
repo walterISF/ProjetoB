@@ -48,20 +48,6 @@ namespace Projeto_B
             calculadora.ShowDialog();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
         private void bloquearUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmBloq frmBloquear = new FrmBloq();

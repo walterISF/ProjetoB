@@ -115,8 +115,43 @@ namespace Projeto_B
          * 6 - psw anterior
          * 7 - psw data da alteração
          */
+        //---ALTERAR USUARIO - parametros (int cod usuario, int campo para alterar, string novo campo) 2 param conforme tabela acima, retorna true para alteraçao bem sucedida e false para quando o campo ou o usario estao invalidos.
+        public bool alterarUsuario(int codUser, int camp, string novo)
+        {
+            StreamReader ler = new StreamReader(arqUser);
+            StreamWriter arqTemp = new StreamWriter(arqTmp, true);
 
-        //---------------------------------------------------------------------
+            string leitura;
+            while ((leitura = ler.ReadLine()) != null)
+            {
+                string[] aux = leitura.Split(';');
+                if (int.Parse(aux[0]) != codUser)
+                {
+                    aux[camp] = novo;
+                    string cliente = aux[0] + ";" + aux[1] + ";" + aux[2] + ";" + aux[3] + ";" + aux[4] + ";" + aux[5];
+
+                    while ((leitura = ler.ReadLine()) != null)
+                    {
+                        aux = leitura.Split(';');
+                        if (codUser == int.Parse(aux[0]))
+                            arqTemp.WriteLine(cliente);
+                        else
+                            arqTemp.WriteLine(leitura);
+                    }
+
+                    ler.Close();
+                    arqTemp.Close();
+
+                    File.Delete(arqUser);
+                    File.Copy(arqTmp, arqUser);
+                    File.Delete(arqTmp);
+
+                    return true;
+                }
+            }
+            return false;
+        }
+        //-------------------------------------------------------------------------
 
         public void trocarSenha(int codUser, string novaSenha)
         {

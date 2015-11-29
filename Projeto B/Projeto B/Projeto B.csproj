@@ -45,6 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clientes.cs" />
+    <Compile Include="FrmAlteraUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAlteraUser.Designer.cs">
+      <DependentUpon>FrmAlteraUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBloq.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     <Compile Include="vendas.cs" />
     <Compile Include="verificaForca.cs" />
     <Compile Include="verificaSenha.cs" />
+    <EmbeddedResource Include="FrmAlteraUser.resx">
+      <DependentUpon>FrmAlteraUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBloq.resx">
       <DependentUpon>FrmBloq.cs</DependentUpon>
     </EmbeddedResource>

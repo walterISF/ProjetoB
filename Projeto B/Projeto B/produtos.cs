@@ -128,6 +128,9 @@ namespace Projeto_B
                         else
                             arqTemp.WriteLine(leitura);
                     }
+                    ler.Close();
+                    arqTemp.Close();
+
                     File.Delete(arqProd);
                     File.Copy(arqTmp, arqProd);
                     File.Delete(arqTmp);
