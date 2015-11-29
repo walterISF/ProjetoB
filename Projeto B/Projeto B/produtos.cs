@@ -46,15 +46,6 @@ namespace Projeto_B
             ler.Close();
             return "";
         }
-        /*
-         * retornos:
-         * 0 = codigo do cliente
-         * 1 = quantidade
-         * 2 = nome
-         * 3 = valor
-         * 4 = secao
-         * 5 = descrição
-         */
         //-----------------------------------------------------------------------
         //---LER ULTIMO PRODUTO - nao recebe parametros - retorna uma string com o codigo do ultimo produto cadastrado
         public string lerUltimoProd()
@@ -71,7 +62,7 @@ namespace Projeto_B
             return prod[0];
         }
         //-----------------------------------------------------------------------
-        //---EXCLUIR PRODUTO - parametros (int codigoProduto) - exclui do registro ativo de produtos
+        //---EXCLUIR PRODUTO - parametros (int codigoProduto) - exclui do registro ativo de produtos e retorna true para sucesso
         public bool excluirProd(int codProd)
         {
             string client = lerProd(codProd);
@@ -104,6 +95,48 @@ namespace Projeto_B
                 return true;
             }
         }
-        //---------------------------------------------------------------------
+        /*
+         * retornos:
+         * 0 = codigo do cliente
+         * 1 = quantidade
+         * 2 = nome
+         * 3 = valor
+         * 4 = secao
+         * 5 = descrição
+         */
+        //----------------------------------------------------------------------
+        //---ALTERAR PRODUTO - parametros (int cod produto, int campo para alterar, string novo campo) 2 param conforme tabela acima, retorna true para alteraçao bem sucedida e false para quando o campo ou o usario estao invalidos.
+        public bool alterarCliente(int codProd, int camp, string novo)
+        {
+            StreamReader ler = new StreamReader(arqProd);
+            StreamWriter arqTemp = new StreamWriter(arqTmp, true);
+
+            string leitura;
+            while ((leitura = ler.ReadLine()) != null)
+            {
+                string[] aux = leitura.Split(';');
+                if (int.Parse(aux[0]) != codProd)
+                {
+                    aux[camp] = novo;
+                    string cliente = aux[0] + ";" + aux[1] + ";" + aux[2] + ";" + aux[3] + ";" + aux[4] + ";" + aux[5];
+
+                    while ((leitura = ler.ReadLine()) != null)
+                    {
+                        aux = leitura.Split(';');
+                        if (codProd == int.Parse(aux[0]))
+                            arqTemp.WriteLine(cliente);
+                        else
+                            arqTemp.WriteLine(leitura);
+                    }
+                    File.Delete(arqProd);
+                    File.Copy(arqTmp, arqProd);
+                    File.Delete(arqTmp);
+
+                    return true;
+                }
+            }
+            return false;
+        }
+        //-----------------------------------------------------------------------------
     }
 }
