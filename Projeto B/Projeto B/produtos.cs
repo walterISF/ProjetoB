@@ -9,12 +9,12 @@ namespace Projeto_B
 {
     class produtos
     {
-        int cod;
-        int quant;
-        string nome;
-        float valor;
-        string secao;
-        string descricao;
+        public int cod;
+        public int quant;
+        public string nome;
+        public float valor;
+        public string secao;
+        public string descricao;
         //------------------------------------------------------------------------
         //---ARQUIVO
         string arqProd = @"c:/temp/arqProd.dat";
@@ -25,7 +25,7 @@ namespace Projeto_B
         public void criarProd(produtos prod)
         {
             StreamWriter gravar = new StreamWriter(arqProd, true);
-            gravar.WriteLine(prod.cod + ";" + prod.quant + ";" + prod.nome + ";" + prod.valor*1.00 + ";" + prod.secao + ";" + prod.descricao);
+            gravar.WriteLine(prod.cod + ";" + prod.nome + ";" + prod.valor*1.00 + ";" + prod.quant + ";" + prod.secao + ";" + prod.descricao);
             gravar.Close();
         }
         //------------------------------------------------------------------------

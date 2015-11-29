@@ -59,7 +59,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.LBL_1 = new System.Windows.Forms.Label();
             this.TXT_1 = new System.Windows.Forms.TextBox();
-            this.LB_registros = new System.Windows.Forms.ListBox();
             this.TXT_2 = new System.Windows.Forms.TextBox();
             this.LBL_2 = new System.Windows.Forms.Label();
             this.TXT_3 = new System.Windows.Forms.TextBox();
@@ -73,6 +72,13 @@
             this.label14 = new System.Windows.Forms.Label();
             this.GPB_excluir = new System.Windows.Forms.GroupBox();
             this.GPB_alterar = new System.Windows.Forms.GroupBox();
+            this.LB_registros = new System.Windows.Forms.ListView();
+            this.Coluna1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Coluna2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Coluna3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Coluna4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Coluna5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Coluna6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -166,12 +172,13 @@
             // 
             this.BTN_Compra.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTN_Compra.BackgroundImage")));
             this.BTN_Compra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BTN_Compra.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BTN_Compra.FlatAppearance.BorderSize = 0;
             this.BTN_Compra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Compra.Location = new System.Drawing.Point(5, 18);
             this.BTN_Compra.Name = "BTN_Compra";
             this.BTN_Compra.Size = new System.Drawing.Size(46, 38);
-            this.BTN_Compra.TabIndex = 6;
+            this.BTN_Compra.TabIndex = 0;
             this.BTN_Compra.UseVisualStyleBackColor = true;
             this.BTN_Compra.Click += new System.EventHandler(this.BTN_Compra_Click);
             // 
@@ -179,6 +186,7 @@
             // 
             this.BTN_addProduto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTN_addProduto.BackgroundImage")));
             this.BTN_addProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BTN_addProduto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BTN_addProduto.FlatAppearance.BorderSize = 0;
             this.BTN_addProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_addProduto.Location = new System.Drawing.Point(71, 18);
@@ -192,6 +200,7 @@
             // 
             this.BTN_addCliente.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTN_addCliente.BackgroundImage")));
             this.BTN_addCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BTN_addCliente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BTN_addCliente.FlatAppearance.BorderSize = 0;
             this.BTN_addCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_addCliente.Location = new System.Drawing.Point(137, 18);
@@ -261,6 +270,7 @@
             this.BTN_incluir.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTN_incluir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTN_incluir.BackgroundImage")));
             this.BTN_incluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BTN_incluir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BTN_incluir.Enabled = false;
             this.BTN_incluir.FlatAppearance.BorderSize = 0;
             this.BTN_incluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -269,6 +279,7 @@
             this.BTN_incluir.Size = new System.Drawing.Size(46, 38);
             this.BTN_incluir.TabIndex = 6;
             this.BTN_incluir.UseVisualStyleBackColor = false;
+            this.BTN_incluir.Click += new System.EventHandler(this.BTN_incluir_Click);
             // 
             // label6
             // 
@@ -285,20 +296,22 @@
             this.BTN_excluir.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTN_excluir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTN_excluir.BackgroundImage")));
             this.BTN_excluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BTN_excluir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BTN_excluir.Enabled = false;
             this.BTN_excluir.FlatAppearance.BorderSize = 0;
             this.BTN_excluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTN_excluir.Location = new System.Drawing.Point(15, 12);
+            this.BTN_excluir.Location = new System.Drawing.Point(15, 16);
             this.BTN_excluir.Name = "BTN_excluir";
             this.BTN_excluir.Size = new System.Drawing.Size(46, 38);
             this.BTN_excluir.TabIndex = 7;
             this.BTN_excluir.UseVisualStyleBackColor = false;
+            this.BTN_excluir.Click += new System.EventHandler(this.BTN_excluir_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(18, 58);
+            this.label4.Location = new System.Drawing.Point(17, 58);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 11;
@@ -308,7 +321,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(16, 59);
+            this.label5.Location = new System.Drawing.Point(17, 56);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 10;
@@ -319,14 +332,16 @@
             this.BTN_alterar.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BTN_alterar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTN_alterar.BackgroundImage")));
             this.BTN_alterar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BTN_alterar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BTN_alterar.Enabled = false;
             this.BTN_alterar.FlatAppearance.BorderSize = 0;
             this.BTN_alterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTN_alterar.Location = new System.Drawing.Point(15, 18);
+            this.BTN_alterar.Location = new System.Drawing.Point(16, 15);
             this.BTN_alterar.Name = "BTN_alterar";
             this.BTN_alterar.Size = new System.Drawing.Size(46, 38);
             this.BTN_alterar.TabIndex = 8;
             this.BTN_alterar.UseVisualStyleBackColor = false;
+            this.BTN_alterar.Click += new System.EventHandler(this.BTN_alterar_Click);
             // 
             // groupBox3
             // 
@@ -352,6 +367,7 @@
             // 
             this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Location = new System.Drawing.Point(6, 11);
@@ -373,82 +389,75 @@
             // 
             this.TXT_1.Location = new System.Drawing.Point(60, 183);
             this.TXT_1.Name = "TXT_1";
+            this.TXT_1.ReadOnly = true;
             this.TXT_1.Size = new System.Drawing.Size(217, 24);
             this.TXT_1.TabIndex = 1;
             this.TXT_1.TextChanged += new System.EventHandler(this.TXT_TextChanged);
             // 
-            // LB_registros
-            // 
-            this.LB_registros.ColumnWidth = 5;
-            this.LB_registros.FormattingEnabled = true;
-            this.LB_registros.HorizontalScrollbar = true;
-            this.LB_registros.ItemHeight = 17;
-            this.LB_registros.Location = new System.Drawing.Point(12, 426);
-            this.LB_registros.MultiColumn = true;
-            this.LB_registros.Name = "LB_registros";
-            this.LB_registros.Size = new System.Drawing.Size(602, 157);
-            this.LB_registros.TabIndex = 17;
-            // 
             // TXT_2
             // 
-            this.TXT_2.Location = new System.Drawing.Point(60, 242);
+            this.TXT_2.Location = new System.Drawing.Point(363, 183);
             this.TXT_2.Name = "TXT_2";
+            this.TXT_2.ReadOnly = true;
             this.TXT_2.Size = new System.Drawing.Size(217, 24);
-            this.TXT_2.TabIndex = 3;
+            this.TXT_2.TabIndex = 2;
             this.TXT_2.TextChanged += new System.EventHandler(this.TXT_TextChanged);
             // 
             // LBL_2
             // 
             this.LBL_2.AutoSize = true;
-            this.LBL_2.Location = new System.Drawing.Point(59, 222);
+            this.LBL_2.Location = new System.Drawing.Point(362, 163);
             this.LBL_2.Name = "LBL_2";
             this.LBL_2.Size = new System.Drawing.Size(0, 17);
             this.LBL_2.TabIndex = 18;
             // 
             // TXT_3
             // 
-            this.TXT_3.Location = new System.Drawing.Point(60, 298);
+            this.TXT_3.Location = new System.Drawing.Point(60, 242);
             this.TXT_3.Name = "TXT_3";
+            this.TXT_3.ReadOnly = true;
             this.TXT_3.Size = new System.Drawing.Size(217, 24);
-            this.TXT_3.TabIndex = 5;
+            this.TXT_3.TabIndex = 3;
             this.TXT_3.TextChanged += new System.EventHandler(this.TXT_TextChanged);
             // 
             // LBL_3
             // 
             this.LBL_3.AutoSize = true;
-            this.LBL_3.Location = new System.Drawing.Point(59, 278);
+            this.LBL_3.Location = new System.Drawing.Point(61, 222);
             this.LBL_3.Name = "LBL_3";
             this.LBL_3.Size = new System.Drawing.Size(0, 17);
             this.LBL_3.TabIndex = 20;
             // 
             // TXT_4
             // 
-            this.TXT_4.Location = new System.Drawing.Point(363, 183);
+            this.TXT_4.Location = new System.Drawing.Point(363, 242);
             this.TXT_4.Name = "TXT_4";
+            this.TXT_4.ReadOnly = true;
             this.TXT_4.Size = new System.Drawing.Size(215, 24);
-            this.TXT_4.TabIndex = 2;
+            this.TXT_4.TabIndex = 4;
             this.TXT_4.TextChanged += new System.EventHandler(this.TXT_TextChanged);
             // 
             // LBL_4
             // 
             this.LBL_4.AutoSize = true;
-            this.LBL_4.Location = new System.Drawing.Point(362, 163);
+            this.LBL_4.Location = new System.Drawing.Point(362, 222);
             this.LBL_4.Name = "LBL_4";
             this.LBL_4.Size = new System.Drawing.Size(0, 17);
             this.LBL_4.TabIndex = 22;
             // 
             // TXT_5
             // 
-            this.TXT_5.Location = new System.Drawing.Point(363, 242);
+            this.TXT_5.Location = new System.Drawing.Point(60, 298);
             this.TXT_5.Name = "TXT_5";
+            this.TXT_5.ReadOnly = true;
             this.TXT_5.Size = new System.Drawing.Size(215, 24);
-            this.TXT_5.TabIndex = 4;
+            this.TXT_5.TabIndex = 5;
             this.TXT_5.TextChanged += new System.EventHandler(this.TXT_TextChanged);
             // 
             // LBL_5
             // 
             this.LBL_5.AutoSize = true;
-            this.LBL_5.Location = new System.Drawing.Point(362, 222);
+            this.LBL_5.Location = new System.Drawing.Point(59, 278);
             this.LBL_5.Name = "LBL_5";
             this.LBL_5.Size = new System.Drawing.Size(0, 17);
             this.LBL_5.TabIndex = 24;
@@ -457,6 +466,7 @@
             // 
             this.TXT_6.Location = new System.Drawing.Point(363, 298);
             this.TXT_6.Name = "TXT_6";
+            this.TXT_6.ReadOnly = true;
             this.TXT_6.Size = new System.Drawing.Size(215, 24);
             this.TXT_6.TabIndex = 6;
             this.TXT_6.TextChanged += new System.EventHandler(this.TXT_TextChanged);
@@ -501,11 +511,60 @@
             this.GPB_alterar.TabIndex = 30;
             this.GPB_alterar.TabStop = false;
             // 
+            // LB_registros
+            // 
+            this.LB_registros.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Coluna1,
+            this.Coluna2,
+            this.Coluna3,
+            this.Coluna4,
+            this.Coluna5,
+            this.Coluna6});
+            this.LB_registros.Location = new System.Drawing.Point(12, 426);
+            this.LB_registros.Name = "LB_registros";
+            this.LB_registros.Size = new System.Drawing.Size(602, 157);
+            this.LB_registros.TabIndex = 31;
+            this.LB_registros.UseCompatibleStateImageBehavior = false;
+            this.LB_registros.View = System.Windows.Forms.View.Details;
+            this.LB_registros.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.LB_registros_ColumnClick);
+            this.LB_registros.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LB_registros_MouseClick);
+            // 
+            // Coluna1
+            // 
+            this.Coluna1.Text = "Coluna1";
+            this.Coluna1.Width = 100;
+            // 
+            // Coluna2
+            // 
+            this.Coluna2.Text = "Coluna2";
+            this.Coluna2.Width = 100;
+            // 
+            // Coluna3
+            // 
+            this.Coluna3.Text = "Coluna3";
+            this.Coluna3.Width = 100;
+            // 
+            // Coluna4
+            // 
+            this.Coluna4.Text = "Coluna4";
+            this.Coluna4.Width = 100;
+            // 
+            // Coluna5
+            // 
+            this.Coluna5.Text = "Coluna5";
+            this.Coluna5.Width = 100;
+            // 
+            // Coluna6
+            // 
+            this.Coluna6.Text = "Coluna6";
+            this.Coluna6.Width = 100;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 595);
+            this.Controls.Add(this.LB_registros);
             this.Controls.Add(this.GPB_alterar);
             this.Controls.Add(this.GPB_excluir);
             this.Controls.Add(this.label14);
@@ -519,7 +578,6 @@
             this.Controls.Add(this.LBL_3);
             this.Controls.Add(this.TXT_2);
             this.Controls.Add(this.LBL_2);
-            this.Controls.Add(this.LB_registros);
             this.Controls.Add(this.TXT_1);
             this.Controls.Add(this.LBL_1);
             this.Controls.Add(this.groupBox3);
@@ -582,7 +640,6 @@
         private System.Windows.Forms.ToolStripMenuItem bloquearUsuárioToolStripMenuItem;
         private System.Windows.Forms.Label LBL_1;
         private System.Windows.Forms.TextBox TXT_1;
-        private System.Windows.Forms.ListBox LB_registros;
         private System.Windows.Forms.TextBox TXT_2;
         private System.Windows.Forms.Label LBL_2;
         private System.Windows.Forms.TextBox TXT_3;
@@ -596,5 +653,12 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox GPB_excluir;
         private System.Windows.Forms.GroupBox GPB_alterar;
+        private System.Windows.Forms.ListView LB_registros;
+        private System.Windows.Forms.ColumnHeader Coluna1;
+        private System.Windows.Forms.ColumnHeader Coluna2;
+        private System.Windows.Forms.ColumnHeader Coluna3;
+        private System.Windows.Forms.ColumnHeader Coluna4;
+        private System.Windows.Forms.ColumnHeader Coluna5;
+        private System.Windows.Forms.ColumnHeader Coluna6;
     }
 }
