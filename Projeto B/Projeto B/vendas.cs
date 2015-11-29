@@ -7,32 +7,32 @@ using System.IO;
 
 namespace Projeto_B
 {
-    class clientes
+    class vendas
     {
         public int cod;
-        public int cpf;
-        public string nome;
-        public string telefone;
-        public string endereco;
+        public int codClient;
+        public int codProd;
+        public float valor;
+        public string data;
         public string descricao;
         //------------------------------------------------------------------------
         //---ARQUIVO
-        string arqClient = @"c:/temp/arqClient.dat";
-        string arqMortoClient = @"c:/temp/arqMortoClient.dat";
+        string arqVendas = @"c:/temp/arqVendas.dat";
+        string arqMortoVendas = @"c:/temp/arqMortoVendas.dat";
         string arqTmp = @"c:/temp/arqTmp.dat";
         //------------------------------------------------------------------------
-        //---CRIAR CLIENTE - parametros (classe clientes)
-        public void criarCliente(clientes client)
+        //---CRIAR VENDA - parametros (classe vendas)
+        public void criarVenda(clientes client)
         {
-            StreamWriter gravar = new StreamWriter(arqClient, true);
+            StreamWriter gravar = new StreamWriter(arqVendas, true);
             gravar.WriteLine(client.cod + ";" + client.cpf + ";" + client.nome + ";" + client.telefone + ";" + client.endereco + ";" + client.descricao);
             gravar.Close();
         }
         //------------------------------------------------------------------------
-        //---LER CLIENTE - paramentros (int codigo do cliente) - retorna a string com o cliente se existir senão retorna uma string vazia "", a string deve ser partida pelo metodo .Split(';');
-        public string lerCliente(int codClient)
+        //---LER VENDA - paramentros (int codigo da venda) - retorna a string com a venda se existir senão retorna uma string vazia "", a string deve ser partida pelo metodo .Split(';');
+        public string lerVenda(int codClient)
         {
-            StreamReader ler = new StreamReader(arqClient);
+            StreamReader ler = new StreamReader(arqVendas);
             string leitura;
             while ((leitura = ler.ReadLine()) != null)
             {
@@ -47,49 +47,49 @@ namespace Projeto_B
             return "";
         }
         //-----------------------------------------------------------------------
-        //---LER ULTIMO CLIENTE - nao recebe parametros - retorna uma string com o codigo do ultimo cliente cadastrado
-        public string lerUltimoCliente()
+        //---LER ULTIMA VENDA - nao recebe parametros - retorna uma string com o codigo da ultima venda cadastrada
+        public string lerUltimoVenda()
         {
-            StreamReader ler = new StreamReader(arqClient);
+            StreamReader ler = new StreamReader(arqVendas);
             string aux = ler.ReadToEnd();
-            string[] usuario = aux.Split('\n');
-            string[] user = new string[6];
+            string[] venda = aux.Split('\n');
+            string[] ven = new string[6];
             ler.Close();
-            if (usuario.Length < 2)
-                user = usuario[0].Split(';');
+            if (venda.Length < 2)
+                ven = venda[0].Split(';');
             else
-                user = usuario[usuario.Length - 2].Split(';');
-            return user[0];
+                ven = venda[venda.Length - 2].Split(';');
+            return ven[0];
         }
         //-----------------------------------------------------------------------
-        //---EXCLUIR CLIENTE - parametros (int codigoCliente) - exclui do registro ativo de clientes e retorna true para sucesso
-        public bool excluirCliente(int codClient)
+        //---CANCELAR VENDA - parametros (int codigoVenda) - exclui do registro ativo de vendas e retorna true para sucesso
+        public bool excluirCliente(int codVenda)
         {
-            string client = lerCliente(codClient);
-            if (client == null)
+            string venda = lerVenda(codVenda);
+            if (venda == null)
                 return false;
             else
             {
-                StreamReader ler = new StreamReader(arqClient);
-                StreamWriter escrever = new StreamWriter(arqMortoClient, true);
+                StreamReader ler = new StreamReader(arqVendas);
+                StreamWriter escrever = new StreamWriter(arqMortoVendas, true);
                 StreamWriter arqTemp = new StreamWriter(arqTmp, true);
                 DateTime data = DateTime.Now;
 
-                escrever.WriteLine("Exclusão de cliente em " + data.ToString() + ":" + client);
+                escrever.WriteLine("Cancelamento da venda em " + data.ToString() + ":" + venda);
 
                 string leitura;
                 while ((leitura = ler.ReadLine()) != null)
                 {
                     string[] aux = leitura.Split(';');
-                    if (int.Parse(aux[0]) != codClient)
+                    if (int.Parse(aux[0]) != codVenda)
                         arqTemp.WriteLine(leitura);
                 }
                 ler.Close();
                 escrever.Close();
                 arqTemp.Close();
 
-                File.Delete(arqClient);
-                File.Copy(arqTmp, arqClient);
+                File.Delete(arqVendas);
+                File.Copy(arqTmp, arqVendas);
                 File.Delete(arqTmp);
 
                 return true;
@@ -105,17 +105,17 @@ namespace Projeto_B
          * 5 = descrição
          */
         //----------------------------------------------------------------------
-        //---ALTERAR CIENTE - parametros (int cod cliente, int campo para alterar, string novo campo) 2 param conforme tabela acima, retorna true para alteraçao bem sucedida e false para quando o campo ou o usario estao invalidos.
-        public bool alterarCliente(int codClient, int camp, string novo)
+        //---ALTERAR VENDA - parametros (int cod venda, int campo para alterar, string novo campo) 2 param conforme tabela acima, retorna true para alteraçao bem sucedida e false para quando o campo ou o usario estao invalidos.
+        public bool alterarVenda(int codVenda, int camp, string novo)
         {
-            StreamReader ler = new StreamReader(arqClient);
+            StreamReader ler = new StreamReader(arqVendas);
             StreamWriter arqTemp = new StreamWriter(arqTmp, true);
 
             string leitura;
             while ((leitura = ler.ReadLine()) != null)
             {
                 string[] aux = leitura.Split(';');
-                if (int.Parse(aux[0]) != codClient)
+                if (int.Parse(aux[0]) != codVenda)
                 {
                     aux[camp] = novo;
                     string cliente = aux[0] + ";" + aux[1] + ";" + aux[2] + ";" + aux[3] + ";" + aux[4] + ";" + aux[5];
@@ -123,20 +123,20 @@ namespace Projeto_B
                     while ((leitura = ler.ReadLine()) != null)
                     {
                         aux = leitura.Split(';');
-                        if (codClient == int.Parse(aux[0]))
+                        if (codVenda == int.Parse(aux[0]))
                             arqTemp.WriteLine(cliente);
                         else
                             arqTemp.WriteLine(leitura);
                     }
-                    File.Delete(arqClient);
-                    File.Copy(arqTmp, arqClient);
+                    File.Delete(arqVendas);
+                    File.Copy(arqTmp, arqVendas);
                     File.Delete(arqTmp);
 
                     return true;
-                }                    
+                }
             }
             return false;
         }
-        //-----------------------------------------------------------------------------
+        //---------------------------------------------------------------------------
     }
 }
