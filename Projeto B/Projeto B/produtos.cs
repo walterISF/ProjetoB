@@ -106,7 +106,7 @@ namespace Projeto_B
          */
         //----------------------------------------------------------------------
         //---ALTERAR PRODUTO - parametros (int cod produto, int campo para alterar, string novo campo) 2 param conforme tabela acima, retorna true para alteraçao bem sucedida e false para quando o campo ou o usario estao invalidos.
-        public bool alterarCliente(int codProd, int camp, string novo)
+        public bool alterarProduto(int codProd, int camp, string novo)
         {
             StreamReader ler = new StreamReader(arqProd);
             StreamWriter arqTemp = new StreamWriter(arqTmp, true);

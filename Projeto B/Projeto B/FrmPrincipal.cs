@@ -116,12 +116,45 @@ namespace Projeto_B
 
         private void BTN_addProduto_Click(object sender, EventArgs e)
         {
+            TXT_1.ReadOnly = false; TXT_2.ReadOnly = false; TXT_3.ReadOnly = false;
+            TXT_4.ReadOnly = false; TXT_5.ReadOnly = false; TXT_6.ReadOnly = false;
             LBL_1.Text = "Codigo";
             LBL_2.Text = "Codigo do Produto";
             LBL_3.Text = "Codigo do Cliente";
             LBL_4.Text = "Valor da Venda";
             LBL_5.Text = "Data da Venda";
             LBL_6.Text = "Descrição";
+
+
+            Coluna1.Text = "Codigo";
+            Coluna2.Text = "Codigo do Produto";
+            Coluna3.Text = "Codigo do Cliente";
+            Coluna4.Text = "Valor da Venda";
+            Coluna5.Text = "Data da Venda";
+            Coluna6.Text = "Descrição";
+
+            try
+            {
+                string[] Tudo = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat");
+                int numeroLinhas = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat").Length;
+                string linha;
+                for (int i = 0; i < numeroLinhas; i++)
+                {
+                    linha = Tudo[i];
+
+                    string[] colunas = linha.Split(';');
+                    LB_registros.Items.Add(colunas[0], i);
+                    LB_registros.Items[i].SubItems.Add(colunas[1]);
+                    LB_registros.Items[i].SubItems.Add(colunas[2]);
+                    LB_registros.Items[i].SubItems.Add(colunas[3]);
+                    LB_registros.Items[i].SubItems.Add(colunas[4]);
+                    LB_registros.Items[i].SubItems.Add(colunas[5]);
+                }
+            }
+            catch
+            {
+
+            }
         }
 
         private void BTN_addCliente_Click(object sender, EventArgs e)
@@ -272,6 +305,44 @@ namespace Projeto_B
             LB_registros.Items.Clear();
             produtos alterar = new produtos();
             alterar.cod = int.Parse(TXT_1.Text);
+            
+            /* METODO DO ALLAN
+            string[] Tudo = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat");
+            int numeroLinhas = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat").Length;
+            
+            string linha;
+
+            for (int i = 0; i < numeroLinhas; i++)
+            {
+                linha = Tudo[i];
+                string[] colunas = linha.Split(';');
+               if (colunas[0] == alterar.cod.ToString())
+               {
+                   alterar.alterarProduto(alterar.cod,i,linha);
+                   if (colunas[i] != "")
+                   {
+
+                       LB_registros.Items.Add(colunas[0], i);
+                       LB_registros.Items[i].SubItems.Add(colunas[1]);
+                       LB_registros.Items[i].SubItems.Add(colunas[2]);
+                       LB_registros.Items[i].SubItems.Add(colunas[3]);
+                       LB_registros.Items[i].SubItems.Add(colunas[4]);
+                       LB_registros.Items[i].SubItems.Add(colunas[5]);
+                   }
+                   else
+                   {
+
+
+                   }
+               }
+
+
+            }
+            TXT_1.Clear(); TXT_2.Clear(); TXT_3.Clear();
+            TXT_4.Clear(); TXT_5.Clear(); TXT_6.Clear();
+            TXT_1.ReadOnly = true;*/
+
+            /* MEU METODO*/
             string[] Tudo = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat");
             int numeroLinhas = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat").Length;
             string linha,novaLinha;
@@ -319,7 +390,7 @@ namespace Projeto_B
                 }
                 TXT_1.Clear(); TXT_2.Clear(); TXT_3.Clear();
                 TXT_4.Clear(); TXT_5.Clear(); TXT_6.Clear();
-                TXT_1.ReadOnly = true;
+                TXT_1.ReadOnly = false;
             }
 
         }
