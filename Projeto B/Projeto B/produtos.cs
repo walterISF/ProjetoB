@@ -54,7 +54,6 @@ namespace Projeto_B
             string todas = ler.ReadToEnd();
             ler.Close();
             return todas;
-
         }
         //-----------------------------------------------------------------------
         //---LER ULTIMO PRODUTO - nao recebe parametros - retorna uma string com o codigo do ultimo produto cadastrado

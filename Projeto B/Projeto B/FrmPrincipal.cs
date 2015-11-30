@@ -155,6 +155,13 @@ namespace Projeto_B
             LBL_4.Text = "Telefone";
             LBL_5.Text = "CPF";
             LBL_6.Text = "Descrição";
+            LB_registros.Clear();
+            //clientes cod = new clientes();
+            //int ultimo = int.Parse(cod.lerUltimoCliente());
+            //if (ultimo != 1)
+             //   TXT_1.Text = (ultimo + 1).ToString();
+            //else
+             //   TXT_1.Text = "1";
         }
 
         private void TXT_TextChanged(object sender, EventArgs e)

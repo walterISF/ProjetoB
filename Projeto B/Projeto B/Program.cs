@@ -16,7 +16,7 @@ namespace Projeto_B
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmInicio());
+            Application.Run(new FrmPrincipal());
         }
     }
 }
