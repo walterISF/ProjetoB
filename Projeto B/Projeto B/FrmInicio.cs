@@ -21,13 +21,13 @@ namespace Projeto_B
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            if (File.Exists(@"c:/temp/arqUser.dat") == false)
+            if (File.Exists(@"c:/temp/arqUser.txt") == false)
             {
-                FileStream a = File.Create(@"c:/temp/arqUser.dat");
+                FileStream a = File.Create(@"c:/temp/arqUser.txt");
             }
-            if (File.Exists(@"c:/temp/arqMortoUser.dat") == false)
+            if (File.Exists(@"c:/temp/arqMortoUser.txt") == false)
             {
-                FileStream b = File.Create(@"c:/temp/arqMortoUser.dat");
+                FileStream b = File.Create(@"c:/temp/arqMortoUser.txt");
             }
             if (File.Exists(@"c:/temp/arqClient.dat") == false)
             {

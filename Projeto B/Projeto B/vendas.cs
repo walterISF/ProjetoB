@@ -120,7 +120,9 @@ namespace Projeto_B
                     aux[camp] = novo;
                     string cliente = aux[0] + ";" + aux[1] + ";" + aux[2] + ";" + aux[3] + ";" + aux[4] + ";" + aux[5];
 
-                    while ((leitura = ler.ReadLine()) != null)
+                    ler.Close();
+                    StreamReader ler2 = new StreamReader(arqVendas);
+                    while ((leitura = ler2.ReadLine()) != null)
                     {
                         aux = leitura.Split(';');
                         if (codVenda == int.Parse(aux[0]))
@@ -128,6 +130,9 @@ namespace Projeto_B
                         else
                             arqTemp.WriteLine(leitura);
                     }
+                    ler2.Close();
+                    arqTemp.Close();
+
                     File.Delete(arqVendas);
                     File.Copy(arqTmp, arqVendas);
                     File.Delete(arqTmp);

@@ -30,26 +30,28 @@ namespace Projeto_B
         private void TXT_codigo_Leave(object sender, EventArgs e)
         {
             usuarios user = new usuarios();
-
-            if (user.lerUsuario(int.Parse(TXT_codigo.Text)) == "")
+            if (TXT_codigo.Text != "")
             {
-                MessageBox.Show("Usuario invalido");
-                TXT_codigo.Text = "";
-            }
-            else
-            {
-                string[] altUser = user.lerUsuario(int.Parse(TXT_codigo.Text)).Split(';');
-                TXT_nome.Text = altUser[3];
-                TXT_nome.Enabled = true;
-                TXT_nascimento.Text = altUser[4];
-                TXT_nascimento.Enabled = true;
-                if (altUser[2] == "1")
-                    CBOX_perfil.SelectedIndex = 0;
-                if (altUser[2] == "2")
-                    CBOX_perfil.SelectedIndex = 1;
-                if (altUser[2] == "3")
-                    CBOX_perfil.SelectedIndex = 2;
-                CBOX_perfil.Enabled = true;
+                if (user.lerUsuario(int.Parse(TXT_codigo.Text)) == "")
+                {
+                    MessageBox.Show("Usuario invalido");
+                    TXT_codigo.Text = "";
+                }
+                else
+                {
+                    string[] altUser = user.lerUsuario(int.Parse(TXT_codigo.Text)).Split(';');
+                    TXT_nome.Text = altUser[3];
+                    TXT_nome.Enabled = true;
+                    TXT_nascimento.Text = altUser[4];
+                    TXT_nascimento.Enabled = true;
+                    if (altUser[2] == "1")
+                        CBOX_perfil.SelectedIndex = 0;
+                    if (altUser[2] == "2")
+                        CBOX_perfil.SelectedIndex = 1;
+                    if (altUser[2] == "3")
+                        CBOX_perfil.SelectedIndex = 2;
+                    CBOX_perfil.Enabled = true;
+                }
             }
         }
 

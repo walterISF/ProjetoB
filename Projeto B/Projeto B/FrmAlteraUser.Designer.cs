@@ -110,7 +110,7 @@
             this.CBOX_perfil.Enabled = false;
             this.CBOX_perfil.FormattingEnabled = true;
             this.CBOX_perfil.Items.AddRange(new object[] {
-            "1 - Administrados",
+            "1 - Administrador",
             "2 - Operador",
             "3 - Auxiliar",
             " "});

@@ -20,9 +20,9 @@ namespace Projeto_B
        
         //--------------------------------------------------------------
 
-        public static string arqUser = @"c:/temp/arqUser.dat";
-        public static string arqMortoUser = @"c:/temp/arqMortoUser.dat";
-        public static string arqTmp = @"c:/temp/arqTmp.dat";
+        public static string arqUser = @"c:/temp/arqUser.txt";
+        public static string arqMortoUser = @"c:/temp/arqMortoUser.txt";
+        public static string arqTmp = @"c:/temp/arqTmp.txt";
         
         //CRUD Usuarios
 
@@ -125,12 +125,14 @@ namespace Projeto_B
             while ((leitura = ler.ReadLine()) != null)
             {
                 string[] aux = leitura.Split(';');
-                if (int.Parse(aux[0]) != codUser)
+                if (int.Parse(aux[0]) == codUser)
                 {
                     aux[camp] = novo;
-                    string cliente = aux[0] + ";" + aux[1] + ";" + aux[2] + ";" + aux[3] + ";" + aux[4] + ";" + aux[5];
+                    string cliente = aux[0] + ";" + aux[1] + ";" + aux[2] + ";" + aux[3] + ";" + aux[4] + ";" + aux[5] + ";" + aux[6] + ";" + aux[7];
 
-                    while ((leitura = ler.ReadLine()) != null)
+                    ler.Close();
+                    StreamReader ler2 = new StreamReader(arqUser);
+                    while ((leitura = ler2.ReadLine()) != null)
                     {
                         aux = leitura.Split(';');
                         if (codUser == int.Parse(aux[0]))
@@ -139,7 +141,7 @@ namespace Projeto_B
                             arqTemp.WriteLine(leitura);
                     }
 
-                    ler.Close();
+                    ler2.Close();
                     arqTemp.Close();
 
                     File.Delete(arqUser);
