@@ -46,6 +46,16 @@ namespace Projeto_B
             ler.Close();
             return "";
         }
+        //-----------------------------------------------------------------------------
+        //---LER TODOS PROD (nao recebe parametros)
+        public string lerTodosProd()
+        {
+            StreamReader ler = new StreamReader(arqProd);
+            string todas = ler.ReadToEnd();
+            ler.Close();
+            return todas;
+
+        }
         //-----------------------------------------------------------------------
         //---LER ULTIMO PRODUTO - nao recebe parametros - retorna uma string com o codigo do ultimo produto cadastrado
         public string lerUltimoProd()

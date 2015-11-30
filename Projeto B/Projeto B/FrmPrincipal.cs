@@ -28,6 +28,10 @@ namespace Projeto_B
                 extraToolStripMenuItem.Visible = false;
             }
 
+             produtos teste = new produtos();
+            string retorno = teste.lerTodosProd();
+            MessageBox.Show(retorno);
+
         }
 
         private void alterarSenhaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -61,7 +65,7 @@ namespace Projeto_B
 
         private void BTN_Compra_Click(object sender, EventArgs e)
         {
-            TXT_1.ReadOnly = false; TXT_2.ReadOnly = false; TXT_3.ReadOnly = false;
+            TXT_2.ReadOnly = false; TXT_3.ReadOnly = false;
             TXT_4.ReadOnly = false; TXT_5.ReadOnly = false; TXT_6.ReadOnly = false;
             LBL_1.Text = "Codigo";
             LBL_2.Text = "Nome";
@@ -102,7 +106,7 @@ namespace Projeto_B
 
         private void BTN_addProduto_Click(object sender, EventArgs e)
         {
-            TXT_1.ReadOnly = false; TXT_2.ReadOnly = false; TXT_3.ReadOnly = false;
+            TXT_2.ReadOnly = false; TXT_3.ReadOnly = false;
             TXT_4.ReadOnly = false; TXT_5.ReadOnly = false; TXT_6.ReadOnly = false;
             LBL_1.Text = "Codigo";
             LBL_2.Text = "Codigo do Produto";
@@ -155,7 +159,7 @@ namespace Projeto_B
 
         private void TXT_TextChanged(object sender, EventArgs e)
         {
-            if (TXT_1.Text != "" && TXT_2.Text != "" && TXT_3.Text != "" && TXT_4.Text != "" && TXT_5.Text != "" && TXT_6.Text != "")
+            if (TXT_2.Text != "" && TXT_3.Text != "" && TXT_4.Text != "" && TXT_5.Text != "" && TXT_6.Text != "")
             {
                 BTN_incluir.BackColor = SystemColors.Control;
                 GPB_incluir.BackColor = SystemColors.Control;
@@ -171,7 +175,16 @@ namespace Projeto_B
             {
                 LB_registros.Items.Clear();
                 produtos add = new produtos();
-                add.cod = int.Parse(TXT_1.Text);
+                string ultimo = add.lerUltimoProd();
+                MessageBox.Show(ultimo);
+                if (ultimo == "") 
+                { 
+                    add.cod = 1;
+                }
+                else
+                {
+                    add.cod += 1;
+                }
                 add.nome = TXT_2.Text;
                 add.valor = float.Parse(TXT_3.Text);
                 add.quant = int.Parse(TXT_4.Text);
@@ -181,14 +194,14 @@ namespace Projeto_B
                 TXT_1.Clear(); TXT_2.Clear(); TXT_3.Clear();
                 TXT_4.Clear(); TXT_5.Clear(); TXT_6.Clear();
 
-                string[] Tudo = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat");
-                int numeroLinhas = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat").Length;
-                string linha;
+                string[] tudo = add.lerTodosProd().Split('\n');
+                int numeroLinhas = tudo.Length;
+                
+                
                 for (int i = 0; i < numeroLinhas; i++)
-                {
-                    linha = Tudo[i];
+                {                    
 
-                    string[] colunas = linha.Split(';');
+                    string[] colunas = tudo[i].Split(';');
                     if (colunas[i] != "")
                     {
                         LB_registros.Items.Add(colunas[0], i);
@@ -214,7 +227,7 @@ namespace Projeto_B
 
         private void LB_registros_MouseClick(object sender, MouseEventArgs e)
         {
-            TXT_1.ReadOnly = true;
+            
             BTN_alterar.Enabled = true;
             BTN_excluir.Enabled = true;
             BTN_excluir.BackColor = SystemColors.Control;
@@ -282,7 +295,7 @@ namespace Projeto_B
                 LB_registros.Items.Clear();
                 TXT_1.Clear(); TXT_2.Clear(); TXT_3.Clear();
                 TXT_4.Clear(); TXT_5.Clear(); TXT_6.Clear();
-                TXT_1.ReadOnly = true;
+                
             }
         }
 
@@ -326,9 +339,10 @@ namespace Projeto_B
             }
             TXT_1.Clear(); TXT_2.Clear(); TXT_3.Clear();
             TXT_4.Clear(); TXT_5.Clear(); TXT_6.Clear();
-            TXT_1.ReadOnly = true;*/
+            */
 
             /* MEU METODO*/
+            
             string[] Tudo = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat");
             int numeroLinhas = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat").Length;
             string linha,novaLinha;
@@ -376,7 +390,7 @@ namespace Projeto_B
                 }
                 TXT_1.Clear(); TXT_2.Clear(); TXT_3.Clear();
                 TXT_4.Clear(); TXT_5.Clear(); TXT_6.Clear();
-                TXT_1.ReadOnly = false;
+                
             }
 
         }

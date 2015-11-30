@@ -389,7 +389,6 @@
             // 
             this.TXT_1.Location = new System.Drawing.Point(60, 183);
             this.TXT_1.Name = "TXT_1";
-            this.TXT_1.ReadOnly = true;
             this.TXT_1.Size = new System.Drawing.Size(217, 24);
             this.TXT_1.TabIndex = 1;
             this.TXT_1.TextChanged += new System.EventHandler(this.TXT_TextChanged);
