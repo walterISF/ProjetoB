@@ -34,7 +34,7 @@ namespace Projeto_B
         {
             StreamReader ler = new StreamReader(arqProd);
             string leitura;
-            while ((leitura = ler.ReadLine()) != null)
+            while ((leitura = ler.ReadLine()) != "" && leitura != null)
             {
                 string[] aux = leitura.Split(';');
                 if (codClient == int.Parse(aux[0]))
@@ -87,7 +87,7 @@ namespace Projeto_B
                 escrever.WriteLine("Exclusão de produto em " + data.ToString() + ": " + client);
 
                 string leitura;
-                while ((leitura = ler.ReadLine()) != null)
+                while ((leitura = ler.ReadLine()) != "" && leitura != null)
                 {
                     string[] aux = leitura.Split(';');
                     if (int.Parse(aux[0]) != codProd)
@@ -121,7 +121,7 @@ namespace Projeto_B
             StreamWriter arqTemp = new StreamWriter(arqTmp, true);
 
             string leitura;
-            while ((leitura = ler.ReadLine()) != null)
+            while ((leitura = ler.ReadLine()) != "" && leitura != null)
             {
                 string[] aux = leitura.Split(';');
                 if (int.Parse(aux[0]) != codProd)
@@ -131,7 +131,7 @@ namespace Projeto_B
 
                     ler.Close();
                     StreamReader ler2 = new StreamReader(arqProd);
-                    while ((leitura = ler2.ReadLine()) != null)
+                    while ((leitura = ler2.ReadLine()) != "" && leitura != null)
                     {
                         aux = leitura.Split(';');
                         if (codProd == int.Parse(aux[0]))

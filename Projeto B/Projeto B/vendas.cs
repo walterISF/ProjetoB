@@ -34,7 +34,7 @@ namespace Projeto_B
         {
             StreamReader ler = new StreamReader(arqVendas);
             string leitura;
-            while ((leitura = ler.ReadLine()) != null)
+            while ((leitura = ler.ReadLine()) != "" && leitura != null)
             {
                 string[] aux = leitura.Split(';');
                 if (codClient == int.Parse(aux[0]))
@@ -78,7 +78,7 @@ namespace Projeto_B
                 escrever.WriteLine("Cancelamento da venda em " + data.ToString() + ":" + venda);
 
                 string leitura;
-                while ((leitura = ler.ReadLine()) != null)
+                while ((leitura = ler.ReadLine()) != "" && leitura != null)
                 {
                     string[] aux = leitura.Split(';');
                     if (int.Parse(aux[0]) != codVenda)
@@ -112,7 +112,7 @@ namespace Projeto_B
             StreamWriter arqTemp = new StreamWriter(arqTmp, true);
 
             string leitura;
-            while ((leitura = ler.ReadLine()) != null)
+            while ((leitura = ler.ReadLine()) != "" && leitura != null)
             {
                 string[] aux = leitura.Split(';');
                 if (int.Parse(aux[0]) != codVenda)
@@ -122,7 +122,7 @@ namespace Projeto_B
 
                     ler.Close();
                     StreamReader ler2 = new StreamReader(arqVendas);
-                    while ((leitura = ler2.ReadLine()) != null)
+                    while ((leitura = ler2.ReadLine()) != "" && leitura != null)
                     {
                         aux = leitura.Split(';');
                         if (codVenda == int.Parse(aux[0]))

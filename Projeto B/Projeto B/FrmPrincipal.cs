@@ -13,6 +13,7 @@ namespace Projeto_B
 {
     public partial class FrmPrincipal : Form
     {
+        int flag = 0;
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -27,11 +28,6 @@ namespace Projeto_B
             {
                 extraToolStripMenuItem.Visible = false;
             }
-
-             produtos teste = new produtos();
-            string retorno = teste.lerTodosProd();
-            MessageBox.Show(retorno);
-
         }
 
         private void alterarSenhaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,103 +61,63 @@ namespace Projeto_B
 
         private void BTN_Compra_Click(object sender, EventArgs e)
         {
-            TXT_2.ReadOnly = false; TXT_3.ReadOnly = false;
-            TXT_4.ReadOnly = false; TXT_5.ReadOnly = false; TXT_6.ReadOnly = false;
-            LBL_1.Text = "Codigo";
-            LBL_2.Text = "Nome";
-            LBL_3.Text = "Preço";
-            LBL_4.Text = "Quantidade";
-            LBL_5.Text = "Seção";
-            LBL_6.Text = "Descrição";
-
-            Coluna1.Text = "Codigo";
-            Coluna2.Text = "Nome";
-            Coluna3.Text = "Preço";
-            Coluna4.Text = "Quantidade";
-            Coluna5.Text = "Seção";
-            Coluna6.Text = "Descrição";
-            try { 
-                    string[] Tudo = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat");
-                    int numeroLinhas = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat").Length;
-                    string linha;
-                    for (int i = 0; i < numeroLinhas; i++)
-                    {
-                        linha = Tudo[i];
-
-                        string[] colunas = linha.Split(';');
-                        LB_registros.Items.Add(colunas[0], i);
-                        LB_registros.Items[i].SubItems.Add(colunas[1]);
-                        LB_registros.Items[i].SubItems.Add(colunas[2]);
-                        LB_registros.Items[i].SubItems.Add(colunas[3]);
-                        LB_registros.Items[i].SubItems.Add(colunas[4]);
-                        LB_registros.Items[i].SubItems.Add(colunas[5]);
-                    }
-            }
-            catch
-            {
-
-            }
-
+            flag = 1;
         }
 
         private void BTN_addProduto_Click(object sender, EventArgs e)
         {
-            TXT_2.ReadOnly = false; TXT_3.ReadOnly = false;
-            TXT_4.ReadOnly = false; TXT_5.ReadOnly = false; TXT_6.ReadOnly = false;
-            LBL_1.Text = "Codigo";
-            LBL_2.Text = "Codigo do Produto";
-            LBL_3.Text = "Codigo do Cliente";
-            LBL_4.Text = "Valor da Venda";
-            LBL_5.Text = "Data da Venda";
-            LBL_6.Text = "Descrição";
-
-
-            Coluna1.Text = "Codigo";
-            Coluna2.Text = "Codigo do Produto";
-            Coluna3.Text = "Codigo do Cliente";
-            Coluna4.Text = "Valor da Venda";
-            Coluna5.Text = "Data da Venda";
-            Coluna6.Text = "Descrição";
-
-            try
-            {
-                string[] Tudo = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat");
-                int numeroLinhas = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat").Length;
-                string linha;
-                for (int i = 0; i < numeroLinhas; i++)
-                {
-                    linha = Tudo[i];
-
-                    string[] colunas = linha.Split(';');
-                    LB_registros.Items.Add(colunas[0], i);
-                    LB_registros.Items[i].SubItems.Add(colunas[1]);
-                    LB_registros.Items[i].SubItems.Add(colunas[2]);
-                    LB_registros.Items[i].SubItems.Add(colunas[3]);
-                    LB_registros.Items[i].SubItems.Add(colunas[4]);
-                    LB_registros.Items[i].SubItems.Add(colunas[5]);
-                }
-            }
-            catch
-            {
-
-            }
+            flag = 2;
         }
 
         private void BTN_addCliente_Click(object sender, EventArgs e)
         {
+            flag = 3;
             LBL_1.Text = "Codigo";
             LBL_2.Text = "Nome";
             LBL_3.Text = "Endereço";
             LBL_4.Text = "Telefone";
             LBL_5.Text = "CPF";
             LBL_6.Text = "Descrição";
-            LB_registros.Clear();
-            //clientes cod = new clientes();
-            //int ultimo = int.Parse(cod.lerUltimoCliente());
-            //if (ultimo != 1)
-             //   TXT_1.Text = (ultimo + 1).ToString();
-            //else
-             //   TXT_1.Text = "1";
+            LB_registros.Items.Clear();
+            TXT_2.ReadOnly = false;
+            TXT_3.ReadOnly = false;
+            TXT_4.ReadOnly = false;
+            TXT_5.ReadOnly = false;
+            TXT_6.ReadOnly = false;
+            BTN_incluir.Enabled = true;
+            BTN_alterar.Enabled = true;
+            BTN_excluir.Enabled = true;
+            Coluna1.Text = "Codigo";
+            Coluna2.Text = "Nome";
+            Coluna3.Text = "Endereço";
+            Coluna4.Text = "Telefone";
+            Coluna5.Text = "CPF";
+            Coluna6.Text = "Descrição";
+
+            clientes cod = new clientes();
+
+            string[] tudo = cod.lerTodosClientes().Split('\n');
+
+            for (int i = 0; i < tudo.Length - 1; i++)
+            {
+                string[] linha = tudo[i].Split(';');
+                LB_registros.Items.Add(linha[0], i);
+                LB_registros.Items[i].SubItems.Add(linha[2]);
+                LB_registros.Items[i].SubItems.Add(linha[4]);
+                LB_registros.Items[i].SubItems.Add(linha[3]);
+                LB_registros.Items[i].SubItems.Add(linha[1]);
+                LB_registros.Items[i].SubItems.Add(linha[5]);
+            }
+
+            
+            string ult = cod.lerUltimoCliente();
+            if (ult == "")
+                TXT_1.Text = "1";
+            else
+            {
+                int ultimo = int.Parse(ult);
+                TXT_1.Text = (ultimo + 1).ToString();
+            }
         }
 
         private void TXT_TextChanged(object sender, EventArgs e)
@@ -171,65 +127,57 @@ namespace Projeto_B
                 BTN_incluir.BackColor = SystemColors.Control;
                 GPB_incluir.BackColor = SystemColors.Control;
                 BTN_incluir.Enabled = true;
-            }
-            
-            
+            }            
         }
 
         private void BTN_incluir_Click(object sender, EventArgs e)
         {
-            try
+            if (flag == 1)
             {
+                
+            }
+            //-----------------------------------------------------------------------------------------------------
+            if (flag == 2)
+            {
+
+            }
+            //-----------------------------------------------------------------------------------------------------
+            if (flag == 3)
+            {
+                clientes cliente = new clientes();
                 LB_registros.Items.Clear();
-                produtos add = new produtos();
-                string ultimo = add.lerUltimoProd();
-                MessageBox.Show(ultimo);
-                if (ultimo == "") 
-                { 
-                    add.cod = 1;
-                }
-                else
+
+                cliente.cod = int.Parse(TXT_1.Text);
+                cliente.cpf = long.Parse(TXT_5.Text);
+                cliente.nome = TXT_2.Text;
+                cliente.telefone = TXT_4.Text;
+                cliente.endereco = TXT_3.Text;
+                cliente.descricao = TXT_6.Text;
+
+                cliente.criarCliente(cliente);
+                int ult = int.Parse(cliente.lerUltimoCliente());
+                ult += 1;
+                TXT_1.Text = ult.ToString();
+
+                string[] tudo = cliente.lerTodosClientes().Split('\n');
+
+                for (int i = 0; i < tudo.Length - 1; i++)
                 {
-                    add.cod += 1;
+                    string[] linha = tudo[i].Split(';');
+                    LB_registros.Items.Add(linha[0],i);
+                    LB_registros.Items[i].SubItems.Add(linha[2]);
+                    LB_registros.Items[i].SubItems.Add(linha[4]);
+                    LB_registros.Items[i].SubItems.Add(linha[3]);
+                    LB_registros.Items[i].SubItems.Add(linha[1]);
+                    LB_registros.Items[i].SubItems.Add(linha[5]);
                 }
-                add.nome = TXT_2.Text;
-                add.valor = float.Parse(TXT_3.Text);
-                add.quant = int.Parse(TXT_4.Text);
-                add.secao = TXT_5.Text;
-                add.descricao = TXT_6.Text;
-                add.criarProd(add);
-                TXT_1.Clear(); TXT_2.Clear(); TXT_3.Clear();
-                TXT_4.Clear(); TXT_5.Clear(); TXT_6.Clear();
-
-                string[] tudo = add.lerTodosProd().Split('\n');
-                int numeroLinhas = tudo.Length;
-                
-                
-                for (int i = 0; i < numeroLinhas; i++)
-                {                    
-
-                    string[] colunas = tudo[i].Split(';');
-                    if (colunas[i] != "")
-                    {
-                        LB_registros.Items.Add(colunas[0], i);
-                        LB_registros.Items[i].SubItems.Add(colunas[1]);
-                        LB_registros.Items[i].SubItems.Add(colunas[2]);
-                        LB_registros.Items[i].SubItems.Add(colunas[3]);
-                        LB_registros.Items[i].SubItems.Add(colunas[4]);
-                        LB_registros.Items[i].SubItems.Add(colunas[5]);
-                    }
-                    else
-                    {
-
-
-                    }
-                }
+                TXT_2.Text = "";
+                TXT_3.Text = "";
+                TXT_4.Text = "";
+                TXT_5.Text = "";
+                TXT_6.Text = "";
             }
-            catch
-            {
-                MessageBox.Show("Digite Valores correspondentes aos campos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
+            //-----------------------------------------------------------------------------------------------------
         }
 
         private void LB_registros_MouseClick(object sender, MouseEventArgs e)
@@ -259,149 +207,68 @@ namespace Projeto_B
             GPB_incluir.BackColor = SystemColors.ControlLight;
         }
 
-        private void LB_registros_ColumnClick(object sender, ColumnClickEventArgs e)
-        {
-
-        }
-
         private void BTN_excluir_Click(object sender, EventArgs e)
         {
-            LB_registros.Items.Clear();
-            produtos remover = new produtos();
-            int codigo = int.Parse(TXT_1.Text);
-            remover.excluirProd(codigo);
-            string[] Tudo = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat");
-            int numeroLinhas = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat").Length;
-            string linha;
-            if (numeroLinhas != 0)
-            {
-                for (int i = 0; i < numeroLinhas; i++)
-                {
-                    linha = Tudo[i];
-
-                    string[] colunas = linha.Split(';');
-                    if (colunas[i] != "")
-                    {
-                        
-                        LB_registros.Items.Add(colunas[0], i);
-                        LB_registros.Items[i].SubItems.Add(colunas[1]);
-                        LB_registros.Items[i].SubItems.Add(colunas[2]);
-                        LB_registros.Items[i].SubItems.Add(colunas[3]);
-                        LB_registros.Items[i].SubItems.Add(colunas[4]);
-                        LB_registros.Items[i].SubItems.Add(colunas[5]);
-                    }
-                    else
-                    {
-
-
-                    }
-                }
-            }
-            else
-            {
-                LB_registros.Items.Clear();
-                TXT_1.Clear(); TXT_2.Clear(); TXT_3.Clear();
-                TXT_4.Clear(); TXT_5.Clear(); TXT_6.Clear();
-                
-            }
+            
         }
 
         private void BTN_alterar_Click(object sender, EventArgs e)
         {
-            LB_registros.Items.Clear();
-            produtos alterar = new produtos();
-            alterar.cod = int.Parse(TXT_1.Text);
-            
-            /* METODO DO ALLAN
-            string[] Tudo = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat");
-            int numeroLinhas = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat").Length;
-            
-            string linha;
-
-            for (int i = 0; i < numeroLinhas; i++)
+            if (flag == 1)
             {
-                linha = Tudo[i];
-                string[] colunas = linha.Split(';');
-               if (colunas[0] == alterar.cod.ToString())
-               {
-                   alterar.alterarProduto(alterar.cod,i,linha);
-                   if (colunas[i] != "")
-                   {
-
-                       LB_registros.Items.Add(colunas[0], i);
-                       LB_registros.Items[i].SubItems.Add(colunas[1]);
-                       LB_registros.Items[i].SubItems.Add(colunas[2]);
-                       LB_registros.Items[i].SubItems.Add(colunas[3]);
-                       LB_registros.Items[i].SubItems.Add(colunas[4]);
-                       LB_registros.Items[i].SubItems.Add(colunas[5]);
-                   }
-                   else
-                   {
-
-
-                   }
-               }
-
-
-            }
-            TXT_1.Clear(); TXT_2.Clear(); TXT_3.Clear();
-            TXT_4.Clear(); TXT_5.Clear(); TXT_6.Clear();
-            */
-
-            /* MEU METODO*/
-            
-            string[] Tudo = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat");
-            int numeroLinhas = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat").Length;
-            string linha,novaLinha;
-
-            for (int i = 0; i < numeroLinhas; i++)
-            {
-                linha = Tudo[i];
-                string[] colunas = linha.Split(';');
-                if (colunas[0] == alterar.cod.ToString())
-                {
-                    alterar.cod = int.Parse(TXT_1.Text);
-                    alterar.nome = TXT_2.Text;
-                    alterar.valor = float.Parse(TXT_3.Text);
-                    alterar.quant = int.Parse(TXT_4.Text);
-                    alterar.secao = TXT_5.Text;
-                    alterar.descricao = TXT_6.Text;
-                    novaLinha = alterar.cod + ";" + alterar.nome + ";" + alterar.valor * 1.00 + ";" + alterar.quant + ";" + alterar.secao + ";" + alterar.descricao;
-
-                    alterar.excluirProd(alterar.cod);
-                    alterar.criarProd(alterar);
-
-                }
-
-            }
-            string[] TudoNovo = System.IO.File.ReadAllLines(@"C:\temp\arqProd.dat");
-            for (int i = 0; i < numeroLinhas; i++)
-            {
-                linha = TudoNovo[i];
-
-                string[] colunas = linha.Split(';');
-                if (colunas[i] != "")
-                {
-
-                    LB_registros.Items.Add(colunas[0], i);
-                    LB_registros.Items[i].SubItems.Add(colunas[1]);
-                    LB_registros.Items[i].SubItems.Add(colunas[2]);
-                    LB_registros.Items[i].SubItems.Add(colunas[3]);
-                    LB_registros.Items[i].SubItems.Add(colunas[4]);
-                    LB_registros.Items[i].SubItems.Add(colunas[5]);
-                }
-                else
-                {
-
-
-                }
-                TXT_1.Clear(); TXT_2.Clear(); TXT_3.Clear();
-                TXT_4.Clear(); TXT_5.Clear(); TXT_6.Clear();
                 
             }
+            //-----------------------------------------------------------------------------
+            if (flag == 2)
+            {
 
-        }
+            }
+            //-----------------------------------------------------------------------------
+            if (flag == 3)
+            {                 
+                clientes alt = new clientes();
 
+                LB_registros.Items.Clear();
 
+                if(MessageBox.Show("Confirma alterações.","Alterando...",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    string[] altCliente = alt.lerCliente(int.Parse(TXT_1.Text)).Split(';');
+                    if (altCliente[1] != TXT_5.Text)
+                        alt.alterarCliente(int.Parse(TXT_1.Text), 1, TXT_5.Text);
+                    if (altCliente[2] != TXT_2.Text)
+                        alt.alterarCliente(int.Parse(TXT_1.Text), 2, TXT_2.Text);
+                    if (altCliente[3] != TXT_4.Text)
+                        alt.alterarCliente(int.Parse(TXT_1.Text), 3, TXT_4.Text);
+                    if (altCliente[4] != TXT_3.Text)
+                        alt.alterarCliente(int.Parse(TXT_1.Text), 4, TXT_3.Text);
+                    if (altCliente[5] != TXT_6.Text)
+                        alt.alterarCliente(int.Parse(TXT_1.Text), 5, TXT_6.Text);
+                }
+                string[] tudo = alt.lerTodosClientes().Split('\n');
+
+                for (int i = 0; i < tudo.Length - 1; i++)
+                {
+                    string[] linha = tudo[i].Split(';');
+                    LB_registros.Items.Add(linha[0],i);
+                    LB_registros.Items[i].SubItems.Add(linha[2]);
+                    LB_registros.Items[i].SubItems.Add(linha[4]);
+                    LB_registros.Items[i].SubItems.Add(linha[3]);
+                    LB_registros.Items[i].SubItems.Add(linha[1]);
+                    LB_registros.Items[i].SubItems.Add(linha[5]);
+                }
+                int ult = int.Parse(alt.lerUltimoCliente());
+                ult += 1;
+                TXT_1.Text = ult.ToString();
+
+                TXT_2.Text = "";
+                TXT_3.Text = "";
+                TXT_4.Text = "";
+                TXT_5.Text = "";
+                TXT_6.Text = "";
+            }
+            //------------------------------------------------------------------------------------
+        }       
     }
 }

@@ -36,7 +36,7 @@ namespace Projeto_B
         {
             StreamReader ler = new StreamReader(arqUser);
             string leitura;
-            while((leitura = ler.ReadLine()) != null)
+            while ((leitura = ler.ReadLine()) != "" && leitura != null)
             {
                 string [] user = leitura.Split(';');
                 int cod = int.Parse(user[0]);
@@ -86,7 +86,7 @@ namespace Projeto_B
                 }
                 user = bloq[0] + ";" + bloq[1] + ";" + bloq[2] + ";" + bloq[3] + ";" + bloq[4] + ";" + bloq[5] + ";" + bloq[6] + ";" + bloq[7];
                 string leitura;
-                while ((leitura = ler.ReadLine()) != null)
+                while ((leitura = ler.ReadLine()) != "" && leitura != null)
                 {
                     bloq = leitura.Split(';');
                     if (int.Parse(bloq[0]) == codUser)
@@ -122,7 +122,7 @@ namespace Projeto_B
             StreamWriter arqTemp = new StreamWriter(arqTmp, true);
 
             string leitura;
-            while ((leitura = ler.ReadLine()) != null)
+            while ((leitura = ler.ReadLine()) != "" && leitura != null)
             {
                 string[] aux = leitura.Split(';');
                 if (int.Parse(aux[0]) == codUser)
@@ -132,7 +132,7 @@ namespace Projeto_B
 
                     ler.Close();
                     StreamReader ler2 = new StreamReader(arqUser);
-                    while ((leitura = ler2.ReadLine()) != null)
+                    while ((leitura = ler2.ReadLine()) != "" && leitura != null)
                     {
                         aux = leitura.Split(';');
                         if (codUser == int.Parse(aux[0]))
@@ -170,7 +170,7 @@ namespace Projeto_B
             user[7] = data.ToString();
             string nSenha = user[0] + ";" + user[1] + ";" + user[2] + ";" + user[3] + ";" + user[4] + ";" + user[5] + ";" + user[6] + ";" + user[7];
             string leitura;
-            while((leitura = ler.ReadLine()) != null)
+            while ((leitura = ler.ReadLine()) != "" && leitura != null)
             {
                 string[] aux = leitura.Split(';');
                 if (!(int.Parse(aux[0]) == codUser))

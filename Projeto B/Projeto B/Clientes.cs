@@ -10,7 +10,7 @@ namespace Projeto_B
     class clientes
     {
         public int cod;
-        public int cpf;
+        public long cpf;
         public string nome;
         public string telefone;
         public string endereco;
@@ -34,7 +34,7 @@ namespace Projeto_B
         {
             StreamReader ler = new StreamReader(arqClient);
             string leitura;
-            while ((leitura = ler.ReadLine()) != null)
+            while ((leitura = ler.ReadLine()) != "" && leitura != null)
             {
                 string[] aux = leitura.Split(';');
                 if (codClient == int.Parse(aux[0]))
@@ -46,7 +46,16 @@ namespace Projeto_B
             ler.Close();
             return "";
         }
-        //-----------------------------------------------------------------------
+        //----------------------------------------------------------------------
+        //---LER TODOS CLEINTES (nao recebe parametros)
+        public string lerTodosClientes()
+        {
+            StreamReader ler = new StreamReader(arqClient);
+            string todas = ler.ReadToEnd();
+            ler.Close();
+            return todas;
+        }
+        //-------------------------------------------------------------------------
         //---LER ULTIMO CLIENTE - nao recebe parametros - retorna uma string com o codigo do ultimo cliente cadastrado
         public string lerUltimoCliente()
         {
@@ -78,7 +87,7 @@ namespace Projeto_B
                 escrever.WriteLine("Exclusão de cliente em " + data.ToString() + ":" + client);
 
                 string leitura;
-                while ((leitura = ler.ReadLine()) != null)
+                while ((leitura = ler.ReadLine()) != "" && leitura != null)
                 {
                     string[] aux = leitura.Split(';');
                     if (int.Parse(aux[0]) != codClient)
@@ -112,17 +121,17 @@ namespace Projeto_B
             StreamWriter arqTemp = new StreamWriter(arqTmp, true);
 
             string leitura;
-            while ((leitura = ler.ReadLine()) != null)
+            while ((leitura = ler.ReadLine()) != "" && leitura != null)
             {
                 string[] aux = leitura.Split(';');
-                if (int.Parse(aux[0]) != codClient)
+                if (int.Parse(aux[0]) == codClient)
                 {
                     aux[camp] = novo;
                     string cliente = aux[0] + ";" + aux[1] + ";" + aux[2] + ";" + aux[3] + ";" + aux[4] + ";" + aux[5];
 
                     ler.Close();
                     StreamReader ler2 = new StreamReader(arqClient);
-                    while ((leitura = ler2.ReadLine()) != null)
+                    while ((leitura = ler2.ReadLine()) != "" && leitura != null)
                     {
                         aux = leitura.Split(';');
                         if (codClient == int.Parse(aux[0]))
@@ -140,6 +149,8 @@ namespace Projeto_B
                     return true;
                 }                    
             }
+            ler.Close();
+            arqTemp.Close();
             return false;
         }
         //-----------------------------------------------------------------------------
