@@ -40,8 +40,8 @@
             this.funcionalidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calculadoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BTN_Compra = new System.Windows.Forms.Button();
             this.BTN_addProduto = new System.Windows.Forms.Button();
+            this.BTN_Compra = new System.Windows.Forms.Button();
             this.BTN_addCliente = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -168,20 +168,6 @@
             this.extraToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
             this.extraToolStripMenuItem.Text = "Extra";
             // 
-            // BTN_Compra
-            // 
-            this.BTN_Compra.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTN_Compra.BackgroundImage")));
-            this.BTN_Compra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BTN_Compra.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BTN_Compra.FlatAppearance.BorderSize = 0;
-            this.BTN_Compra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTN_Compra.Location = new System.Drawing.Point(5, 18);
-            this.BTN_Compra.Name = "BTN_Compra";
-            this.BTN_Compra.Size = new System.Drawing.Size(46, 38);
-            this.BTN_Compra.TabIndex = 0;
-            this.BTN_Compra.UseVisualStyleBackColor = true;
-            this.BTN_Compra.Click += new System.EventHandler(this.BTN_Compra_Click);
-            // 
             // BTN_addProduto
             // 
             this.BTN_addProduto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTN_addProduto.BackgroundImage")));
@@ -189,12 +175,26 @@
             this.BTN_addProduto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BTN_addProduto.FlatAppearance.BorderSize = 0;
             this.BTN_addProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTN_addProduto.Location = new System.Drawing.Point(71, 18);
+            this.BTN_addProduto.Location = new System.Drawing.Point(5, 18);
             this.BTN_addProduto.Name = "BTN_addProduto";
             this.BTN_addProduto.Size = new System.Drawing.Size(46, 38);
-            this.BTN_addProduto.TabIndex = 7;
+            this.BTN_addProduto.TabIndex = 0;
             this.BTN_addProduto.UseVisualStyleBackColor = true;
             this.BTN_addProduto.Click += new System.EventHandler(this.BTN_addProduto_Click);
+            // 
+            // BTN_Compra
+            // 
+            this.BTN_Compra.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTN_Compra.BackgroundImage")));
+            this.BTN_Compra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BTN_Compra.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BTN_Compra.FlatAppearance.BorderSize = 0;
+            this.BTN_Compra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_Compra.Location = new System.Drawing.Point(71, 18);
+            this.BTN_Compra.Name = "BTN_Compra";
+            this.BTN_Compra.Size = new System.Drawing.Size(46, 38);
+            this.BTN_Compra.TabIndex = 7;
+            this.BTN_Compra.UseVisualStyleBackColor = true;
+            this.BTN_Compra.Click += new System.EventHandler(this.BTN_Compra_Click);
             // 
             // BTN_addCliente
             // 
@@ -242,9 +242,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.BTN_addProduto);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.BTN_Compra);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.BTN_addProduto);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.BTN_addCliente);
             this.groupBox1.Controls.Add(this.label1);
@@ -621,8 +621,8 @@
         private System.Windows.Forms.ToolStripMenuItem funcionalidadesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem calculadoraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem extraToolStripMenuItem;
-        private System.Windows.Forms.Button BTN_Compra;
         private System.Windows.Forms.Button BTN_addProduto;
+        private System.Windows.Forms.Button BTN_Compra;
         private System.Windows.Forms.Button BTN_addCliente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

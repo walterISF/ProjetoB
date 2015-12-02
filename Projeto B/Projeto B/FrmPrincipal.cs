@@ -59,15 +59,89 @@ namespace Projeto_B
             this.Close();
         }
 
+        private void TXT_TextChanged(object sender, EventArgs e)
+        {
+            if (TXT_2.Text != "" && TXT_3.Text != "" && TXT_4.Text != "" && TXT_5.Text != "" && TXT_6.Text != "")
+            {
+                BTN_incluir.BackColor = SystemColors.Control;
+                GPB_incluir.BackColor = SystemColors.Control;
+                BTN_incluir.Enabled = true;
+            }
+        }
+
+        private void BTN_addProduto_Click(object sender, EventArgs e)
+        {
+            flag = 1;
+            LBL_1.Text = "Codigo";
+            LBL_2.Text = "Nome";
+            LBL_3.Text = "Valor";
+            LBL_4.Text = "Quantidade";
+            LBL_5.Text = "Seção";
+            LBL_6.Text = "Descrição";
+            TXT_1.Text = "";
+            TXT_2.Text = "";
+            TXT_3.Text = "";
+            TXT_4.Text = "";
+            TXT_5.Text = "";
+            TXT_6.Text = "";
+            LB_registros.Items.Clear();
+            TXT_2.ReadOnly = false;
+            TXT_3.ReadOnly = false;
+            TXT_4.ReadOnly = false;
+            TXT_5.ReadOnly = false;
+            TXT_6.ReadOnly = false;
+            TXT_2.Enabled = true;
+            BTN_incluir.Enabled = true;
+            BTN_alterar.Enabled = true;
+            BTN_excluir.Enabled = true;
+            Coluna1.Text = "Codigo";
+            Coluna2.Text = "Nome";
+            Coluna3.Text = "Valor";
+            Coluna4.Text = "Quantidade";
+            Coluna5.Text = "Seção";
+            Coluna6.Text = "Descrição";
+
+            produtos cod = new produtos();
+
+            string[] tudo = cod.lerTodosProd().Split('\n');
+
+            for (int i = 0; i < tudo.Length - 1; i++)
+            {
+                string[] linha = tudo[i].Split(';');
+                LB_registros.Items.Add(linha[0], i);
+                LB_registros.Items[i].SubItems.Add(linha[1]);
+                LB_registros.Items[i].SubItems.Add(linha[2]);
+                LB_registros.Items[i].SubItems.Add(linha[3]);
+                LB_registros.Items[i].SubItems.Add(linha[4]);
+                LB_registros.Items[i].SubItems.Add(linha[5]);
+            }
+
+
+            string ult = cod.lerUltimoProd();
+            if (ult == "")
+                TXT_1.Text = "1";
+            else
+            {
+                int ultimo = int.Parse(ult);
+                TXT_1.Text = (ultimo + 1).ToString();
+            }
+        }
+
         private void BTN_Compra_Click(object sender, EventArgs e)
         {
             flag = 2;
             LBL_1.Text = "Código Venda";
             LBL_2.Text = "Valor";
-            LBL_3.Text = "Código do cliente";
+            LBL_3.Text = "Código do produto";
             LBL_4.Text = "Código do Produto";
             LBL_5.Text = "Quantidade";
             LBL_6.Text = "Descrição";
+            TXT_1.Text = "";
+            TXT_2.Text = "";
+            TXT_3.Text = "";
+            TXT_4.Text = "";
+            TXT_5.Text = "";
+            TXT_6.Text = "";
             LB_registros.Items.Clear();
             TXT_2.Enabled = false;
             TXT_3.ReadOnly = false;
@@ -84,12 +158,32 @@ namespace Projeto_B
             Coluna4.Text = "Produto";
             Coluna5.Text = "Quantidade";
             Coluna6.Text = "Descrição";
-        }
 
-        private void BTN_addProduto_Click(object sender, EventArgs e)
-        {
-            flag = 1;
-        }
+            vendas cod = new vendas();
+
+            string[] tudo = cod.lerTodosVendas().Split('\n');
+
+            for (int i = 0; i < tudo.Length - 1; i++)
+            {
+                string[] linha = tudo[i].Split(';');
+                LB_registros.Items.Add(linha[0], i);
+                LB_registros.Items[i].SubItems.Add(linha[2]);
+                LB_registros.Items[i].SubItems.Add(linha[4]);
+                LB_registros.Items[i].SubItems.Add(linha[3]);
+                LB_registros.Items[i].SubItems.Add(linha[1]);
+                LB_registros.Items[i].SubItems.Add(linha[5]);
+            }
+
+
+            string ult = cod.lerUltimoVenda();
+            if (ult == "")
+                TXT_1.Text = "1";
+            else
+            {
+                int ultimo = int.Parse(ult);
+                TXT_1.Text = (ultimo + 1).ToString();
+            }
+        }        
 
         private void BTN_addCliente_Click(object sender, EventArgs e)
         {
@@ -100,6 +194,12 @@ namespace Projeto_B
             LBL_4.Text = "Telefone";
             LBL_5.Text = "CPF";
             LBL_6.Text = "Descrição";
+            TXT_1.Text = "";
+            TXT_2.Text = "";
+            TXT_3.Text = "";
+            TXT_4.Text = "";
+            TXT_5.Text = "";
+            TXT_6.Text = "";
             LB_registros.Items.Clear();
             TXT_2.ReadOnly = false;
             TXT_3.ReadOnly = false;
@@ -143,21 +243,42 @@ namespace Projeto_B
             }
         }
 
-        private void TXT_TextChanged(object sender, EventArgs e)
-        {
-            if (TXT_2.Text != "" && TXT_3.Text != "" && TXT_4.Text != "" && TXT_5.Text != "" && TXT_6.Text != "")
-            {
-                BTN_incluir.BackColor = SystemColors.Control;
-                GPB_incluir.BackColor = SystemColors.Control;
-                BTN_incluir.Enabled = true;
-            }            
-        }
-
         private void BTN_incluir_Click(object sender, EventArgs e)
         {
             if (flag == 1)
             {
-                
+                produtos produto = new produtos();
+                LB_registros.Items.Clear();
+
+                produto.cod = int.Parse(TXT_1.Text);
+                produto.quant = int.Parse(TXT_4.Text);
+                produto.nome = TXT_2.Text;
+                produto.valor = float.Parse(TXT_3.Text);
+                produto.secao = TXT_5.Text;
+                produto.descricao = TXT_6.Text;
+
+                produto.criarProd(produto);
+                int ult = int.Parse(produto.lerUltimoProd());
+                ult += 1;
+                TXT_1.Text = ult.ToString();
+
+                string[] tudo = produto.lerTodosProd().Split('\n');
+
+                for (int i = 0; i < tudo.Length - 1; i++)
+                {
+                    string[] linha = tudo[i].Split(';');
+                    LB_registros.Items.Add(linha[0], i);
+                    LB_registros.Items[i].SubItems.Add(linha[1]);
+                    LB_registros.Items[i].SubItems.Add(linha[2]);
+                    LB_registros.Items[i].SubItems.Add(linha[3]);
+                    LB_registros.Items[i].SubItems.Add(linha[4]);
+                    LB_registros.Items[i].SubItems.Add(linha[5]);
+                }
+                TXT_2.Text = "";
+                TXT_3.Text = "";
+                TXT_4.Text = "";
+                TXT_5.Text = "";
+                TXT_6.Text = "";
             }
             //--------------------------------------------------------------------------------------
             if (flag == 2)
@@ -216,18 +337,26 @@ namespace Projeto_B
                                 MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     string[] altCliente = alt.lerProd(int.Parse(TXT_1.Text)).Split(';');
-                    if (altCliente[1] != TXT_4.Text)
-                        alt.alterarProduto(int.Parse(TXT_1.Text), 1, TXT_4.Text);
-                    if (altCliente[2] != TXT_2.Text)
-                        alt.alterarProduto(int.Parse(TXT_1.Text), 2, TXT_2.Text);
-                    if (altCliente[3] != TXT_3.Text)
-                        alt.alterarProduto(int.Parse(TXT_1.Text), 3, TXT_3.Text);
+                    if (altCliente[1] != TXT_2.Text)
+                        alt.alterarProduto(int.Parse(TXT_1.Text), 1, TXT_2.Text);
+                    if (altCliente[2] != TXT_3.Text)
+                        alt.alterarProduto(int.Parse(TXT_1.Text), 2, TXT_3.Text);
+                    if (altCliente[3] != TXT_4.Text)
+                        alt.alterarProduto(int.Parse(TXT_1.Text), 3, TXT_4.Text);
                     if (altCliente[4] != TXT_5.Text)
                         alt.alterarProduto(int.Parse(TXT_1.Text), 4, TXT_5.Text);
                     if (altCliente[5] != TXT_6.Text)
                         alt.alterarProduto(int.Parse(TXT_1.Text), 5, TXT_6.Text);
                 }
-                
+                /*
+         * retornos:
+         * 0 = codigo do exc
+         * 1 = quantidade
+         * 2 = nome
+         * 3 = valor
+         * 4 = secao
+         * 5 = descrição
+         */
                 string[] tudo = alt.lerTodosProd().Split('\n');
 
                 for (int i = 0; i < tudo.Length - 1; i++)

@@ -103,13 +103,13 @@ namespace Projeto_B
 
                 return true;
             }
-        }        
+        }
         /*
          * retornos:
          * 0 = codigo do exc
-         * 1 = quantidade
-         * 2 = nome
-         * 3 = valor
+         * 1 = nome
+         * 2 = valor
+         * 3 = quantidade
          * 4 = secao
          * 5 = descrição
          */
@@ -124,7 +124,7 @@ namespace Projeto_B
             while ((leitura = ler.ReadLine()) != "" && leitura != null)
             {
                 string[] aux = leitura.Split(';');
-                if (int.Parse(aux[0]) != codProd)
+                if (int.Parse(aux[0]) == codProd)
                 {
                     aux[camp] = novo;
                     string cliente = aux[0] + ";" + aux[1] + ";" + aux[2] + ";" + aux[3] + ";" + aux[4] + ";" + aux[5];

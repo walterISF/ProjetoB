@@ -107,7 +107,7 @@ namespace Projeto_B
         /*
          * 0 - codigo venda
          * 1 - valor
-         * 2 - cliente
+         * 2 - produto
          * 3 - produto
          * 4 - qtd
          * 5 - descricao
@@ -123,7 +123,7 @@ namespace Projeto_B
             while ((leitura = ler.ReadLine()) != "" && leitura != null)
             {
                 string[] aux = leitura.Split(';');
-                if (int.Parse(aux[0]) != codVenda)
+                if (int.Parse(aux[0]) == codVenda)
                 {
                     aux[camp] = novo;
                     string cliente = aux[0] + ";" + aux[1] + ";" + aux[2] + ";" + aux[3] + ";" + aux[4] + ";" + aux[5];
