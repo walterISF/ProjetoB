@@ -62,6 +62,40 @@ namespace Projeto_B
             return ven[0];
         }
         //-----------------------------------------------------------------------
+        //---EXCLUIR VENDA - parametros (int codigoVenda) - exclui do registro ativo de vendas e retorna true para sucesso
+        public bool excluirVenda(int codVenda)
+        {
+            string venda = lerVenda(codVenda);
+            if (venda == null)
+                return false;
+            else
+            {
+                StreamReader ler = new StreamReader(arqVendas);
+                StreamWriter escrever = new StreamWriter(arqMortoVendas, true);
+                StreamWriter arqTemp = new StreamWriter(arqTmp, true);
+                DateTime data = DateTime.Now;
+
+                escrever.WriteLine("Cancelamento de venda em " + data.ToString() + ":" + venda);
+
+                string leitura;
+                while ((leitura = ler.ReadLine()) != "" && leitura != null)
+                {
+                    string[] aux = leitura.Split(';');
+                    if (int.Parse(aux[0]) != codVenda)
+                        arqTemp.WriteLine(leitura);
+                }
+                ler.Close();
+                escrever.Close();
+                arqTemp.Close();
+
+                File.Delete(arqVendas);
+                File.Copy(arqTmp, arqVendas);
+                File.Delete(arqTmp);
+
+                return true;
+            }
+        }
+        //-----------------------------------------------------------------------
         //---CANCELAR VENDA - parametros (int codigoVenda) - exclui do registro ativo de vendas e retorna true para sucesso
         public bool excluirCliente(int codVenda)
         {
