@@ -44,7 +44,15 @@ namespace Projeto_B
             if (File.Exists(@"c:/temp/arqMortoProd.dat") == false)
             {
                 FileStream g = File.Create(@"c:/temp/arqMortoProd.dat");
-            }               
+            }
+            if (File.Exists(@"c:/temp/arqVendas.dat") == false)
+            {
+                FileStream f = File.Create(@"c:/temp/arqVendas.dat");
+            }
+            if (File.Exists(@"c:/temp/arqMortoVendas.dat") == false)
+            {
+                FileStream g = File.Create(@"c:/temp/arqMortoVendas.dat");
+            }  
         }
 
         private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)

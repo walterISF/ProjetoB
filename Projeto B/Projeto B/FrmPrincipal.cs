@@ -132,7 +132,7 @@ namespace Projeto_B
             flag = 2;
             LBL_1.Text = "Código Venda";
             LBL_2.Text = "Valor";
-            LBL_3.Text = "Código do produto";
+            LBL_3.Text = "Código do cliente";
             LBL_4.Text = "Código do Produto";
             LBL_5.Text = "Quantidade";
             LBL_6.Text = "Descrição";
@@ -148,7 +148,7 @@ namespace Projeto_B
             TXT_4.ReadOnly = false;
             TXT_5.ReadOnly = false;
             TXT_6.ReadOnly = false;
-            TXT_2.Enabled = true;
+            TXT_2.Enabled = false;
             BTN_incluir.Enabled = true;
             BTN_alterar.Enabled = true;
             BTN_excluir.Enabled = true;
@@ -641,7 +641,7 @@ namespace Projeto_B
                 string[] produto = prod.lerProd(int.Parse(TXT_4.Text)).Split(';');
 
                 if (produto[0] != "" && produto != null)
-                    TXT_3.Text = produto[2];
+                    TXT_4.Text = produto[1];
                 else
                 {
                     MessageBox.Show("Produto não encontrado", "Erro",
