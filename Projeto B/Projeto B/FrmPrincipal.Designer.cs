@@ -419,6 +419,7 @@
             this.TXT_3.Size = new System.Drawing.Size(217, 28);
             this.TXT_3.TabIndex = 3;
             this.TXT_3.TextChanged += new System.EventHandler(this.TXT_TextChanged);
+            this.TXT_3.Leave += new System.EventHandler(this.TXT_3_Leave);
             // 
             // LBL_3
             // 
@@ -436,6 +437,7 @@
             this.TXT_4.Size = new System.Drawing.Size(215, 28);
             this.TXT_4.TabIndex = 4;
             this.TXT_4.TextChanged += new System.EventHandler(this.TXT_TextChanged);
+            this.TXT_4.Leave += new System.EventHandler(this.TXT_4_Leave);
             // 
             // LBL_4
             // 

@@ -103,44 +103,10 @@ namespace Projeto_B
 
                 return true;
             }
-        }
-        //-----------------------------------------------------------------------
-        //---EXCLUIR PRODUTO - parametros (int codigoProduto) - exclui do registro ativo de produtos e retorna true para sucesso
-        public bool excluirProd(int codProd)
-        {
-            string client = lerProd(codProd);
-            if (client == null)
-                return false;
-            else
-            {
-                StreamReader ler = new StreamReader(arqProd);
-                StreamWriter escrever = new StreamWriter(arqMortoProd, true);
-                StreamWriter arqTemp = new StreamWriter(arqTmp);
-                DateTime data = DateTime.Now;
-
-                escrever.WriteLine("Exclusão de produto em " + data.ToString() + ": " + client);
-
-                string leitura;
-                while ((leitura = ler.ReadLine()) != "" && leitura != null)
-                {
-                    string[] aux = leitura.Split(';');
-                    if (int.Parse(aux[0]) != codProd)
-                        arqTemp.WriteLine(leitura);
-                }
-                ler.Close();
-                escrever.Close();
-                arqTemp.Close();
-
-                File.Delete(arqProd);
-                File.Copy(arqTmp, arqProd);
-                File.Delete(arqTmp);
-
-                return true;
-            }
-        }
+        }        
         /*
          * retornos:
-         * 0 = codigo do cliente
+         * 0 = codigo do exc
          * 1 = quantidade
          * 2 = nome
          * 3 = valor

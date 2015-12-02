@@ -10,10 +10,10 @@ namespace Projeto_B
     class vendas
     {
         public int cod;
-        public int codClient;
-        public int codProd;
         public float valor;
-        public string data;
+        public string client;
+        public string prod;        
+        public int qtd;
         public string descricao;
         //------------------------------------------------------------------------
         //---ARQUIVO
@@ -61,6 +61,15 @@ namespace Projeto_B
                 ven = venda[venda.Length - 2].Split(';');
             return ven[0];
         }
+        //----------------------------------------------------------------------
+        //---LER TODOS VENDAS (nao recebe parametros)
+        public string lerTodosVendas()
+        {
+            StreamReader ler = new StreamReader(arqVendas);
+            string todas = ler.ReadToEnd();
+            ler.Close();
+            return todas;
+        }
         //-----------------------------------------------------------------------
         //---EXCLUIR VENDA - parametros (int codigoVenda) - exclui do registro ativo de vendas e retorna true para sucesso
         public bool excluirVenda(int codVenda)
@@ -95,48 +104,13 @@ namespace Projeto_B
                 return true;
             }
         }
-        //-----------------------------------------------------------------------
-        //---CANCELAR VENDA - parametros (int codigoVenda) - exclui do registro ativo de vendas e retorna true para sucesso
-        public bool excluirCliente(int codVenda)
-        {
-            string venda = lerVenda(codVenda);
-            if (venda == null)
-                return false;
-            else
-            {
-                StreamReader ler = new StreamReader(arqVendas);
-                StreamWriter escrever = new StreamWriter(arqMortoVendas, true);
-                StreamWriter arqTemp = new StreamWriter(arqTmp, true);
-                DateTime data = DateTime.Now;
-
-                escrever.WriteLine("Cancelamento da venda em " + data.ToString() + ":" + venda);
-
-                string leitura;
-                while ((leitura = ler.ReadLine()) != "" && leitura != null)
-                {
-                    string[] aux = leitura.Split(';');
-                    if (int.Parse(aux[0]) != codVenda)
-                        arqTemp.WriteLine(leitura);
-                }
-                ler.Close();
-                escrever.Close();
-                arqTemp.Close();
-
-                File.Delete(arqVendas);
-                File.Copy(arqTmp, arqVendas);
-                File.Delete(arqTmp);
-
-                return true;
-            }
-        }
         /*
-         * retornos:
-         * 0 = codigo do cliente
-         * 1 = cpf
-         * 2 = nome
-         * 3 = telefone
-         * 4 = endereço
-         * 5 = descrição
+         * 0 - codigo venda
+         * 1 - valor
+         * 2 - cliente
+         * 3 - produto
+         * 4 - qtd
+         * 5 - descricao
          */
         //----------------------------------------------------------------------
         //---ALTERAR VENDA - parametros (int cod venda, int campo para alterar, string novo campo) 2 param conforme tabela acima, retorna true para alteraçao bem sucedida e false para quando o campo ou o usario estao invalidos.

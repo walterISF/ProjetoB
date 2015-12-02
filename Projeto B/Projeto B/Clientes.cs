@@ -29,7 +29,7 @@ namespace Projeto_B
             gravar.Close();
         }
         //------------------------------------------------------------------------
-        //---LER CLIENTE - paramentros (int codigo do cliente) - retorna a string com o cliente se existir senão retorna uma string vazia "", a string deve ser partida pelo metodo .Split(';');
+        //---LER CLIENTE - paramentros (int codigo do exc) - retorna a string com o exc se existir senão retorna uma string vazia "", a string deve ser partida pelo metodo .Split(';');
         public string lerCliente(int codClient)
         {
             StreamReader ler = new StreamReader(arqClient);
@@ -56,7 +56,7 @@ namespace Projeto_B
             return todas;
         }
         //-------------------------------------------------------------------------
-        //---LER ULTIMO CLIENTE - nao recebe parametros - retorna uma string com o codigo do ultimo cliente cadastrado
+        //---LER ULTIMO CLIENTE - nao recebe parametros - retorna uma string com o codigo do ultimo exc cadastrado
         public string lerUltimoCliente()
         {
             StreamReader ler = new StreamReader(arqClient);
@@ -84,7 +84,7 @@ namespace Projeto_B
                 StreamWriter arqTemp = new StreamWriter(arqTmp, true);
                 DateTime data = DateTime.Now;
 
-                escrever.WriteLine("Exclusão de cliente em " + data.ToString() + ":" + client);
+                escrever.WriteLine("Exclusão de Cliente em " + data.ToString() + ":" + client);
 
                 string leitura;
                 while ((leitura = ler.ReadLine()) != "" && leitura != null)
@@ -114,7 +114,7 @@ namespace Projeto_B
          * 5 = descrição
          */
         //----------------------------------------------------------------------
-        //---ALTERAR CIENTE - parametros (int cod cliente, int campo para alterar, string novo campo) 2 param conforme tabela acima, retorna true para alteraçao bem sucedida e false para quando o campo ou o usario estao invalidos.
+        //---ALTERAR CIENTE - parametros (int cod exc, int campo para alterar, string novo campo) 2 param conforme tabela acima, retorna true para alteraçao bem sucedida e false para quando o campo ou o usario estao invalidos.
         public bool alterarCliente(int codClient, int camp, string novo)
         {
             StreamReader ler = new StreamReader(arqClient);
