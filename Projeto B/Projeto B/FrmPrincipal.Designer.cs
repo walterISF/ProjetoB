@@ -396,9 +396,9 @@
             // 
             // TXT_2
             // 
+            this.TXT_2.Enabled = false;
             this.TXT_2.Location = new System.Drawing.Point(363, 183);
             this.TXT_2.Name = "TXT_2";
-            this.TXT_2.ReadOnly = true;
             this.TXT_2.Size = new System.Drawing.Size(217, 28);
             this.TXT_2.TabIndex = 2;
             this.TXT_2.TextChanged += new System.EventHandler(this.TXT_TextChanged);
@@ -413,9 +413,9 @@
             // 
             // TXT_3
             // 
+            this.TXT_3.Enabled = false;
             this.TXT_3.Location = new System.Drawing.Point(60, 242);
             this.TXT_3.Name = "TXT_3";
-            this.TXT_3.ReadOnly = true;
             this.TXT_3.Size = new System.Drawing.Size(217, 28);
             this.TXT_3.TabIndex = 3;
             this.TXT_3.TextChanged += new System.EventHandler(this.TXT_TextChanged);
@@ -431,9 +431,9 @@
             // 
             // TXT_4
             // 
+            this.TXT_4.Enabled = false;
             this.TXT_4.Location = new System.Drawing.Point(363, 242);
             this.TXT_4.Name = "TXT_4";
-            this.TXT_4.ReadOnly = true;
             this.TXT_4.Size = new System.Drawing.Size(215, 28);
             this.TXT_4.TabIndex = 4;
             this.TXT_4.TextChanged += new System.EventHandler(this.TXT_TextChanged);
@@ -449,9 +449,9 @@
             // 
             // TXT_5
             // 
+            this.TXT_5.Enabled = false;
             this.TXT_5.Location = new System.Drawing.Point(60, 298);
             this.TXT_5.Name = "TXT_5";
-            this.TXT_5.ReadOnly = true;
             this.TXT_5.Size = new System.Drawing.Size(215, 28);
             this.TXT_5.TabIndex = 5;
             this.TXT_5.TextChanged += new System.EventHandler(this.TXT_TextChanged);
@@ -467,9 +467,9 @@
             // 
             // TXT_6
             // 
+            this.TXT_6.Enabled = false;
             this.TXT_6.Location = new System.Drawing.Point(363, 298);
             this.TXT_6.Name = "TXT_6";
-            this.TXT_6.ReadOnly = true;
             this.TXT_6.Size = new System.Drawing.Size(215, 28);
             this.TXT_6.TabIndex = 6;
             this.TXT_6.TextChanged += new System.EventHandler(this.TXT_TextChanged);

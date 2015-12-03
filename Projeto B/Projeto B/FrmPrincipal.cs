@@ -85,12 +85,11 @@ namespace Projeto_B
             TXT_5.Text = "";
             TXT_6.Text = "";
             LB_registros.Items.Clear();
-            TXT_2.ReadOnly = false;
-            TXT_3.ReadOnly = false;
-            TXT_4.ReadOnly = false;
-            TXT_5.ReadOnly = false;
-            TXT_6.ReadOnly = false;
             TXT_2.Enabled = true;
+            TXT_3.Enabled = true;
+            TXT_4.Enabled = true;
+            TXT_5.Enabled = true;
+            TXT_6.Enabled = true;
             BTN_incluir.Enabled = true;
             BTN_alterar.Enabled = true;
             BTN_excluir.Enabled = true;
@@ -144,11 +143,10 @@ namespace Projeto_B
             TXT_6.Text = "";
             LB_registros.Items.Clear();
             TXT_2.Enabled = false;
-            TXT_3.ReadOnly = false;
-            TXT_4.ReadOnly = false;
-            TXT_5.ReadOnly = false;
-            TXT_6.ReadOnly = false;
-            TXT_2.Enabled = false;
+            TXT_3.Enabled = true;
+            TXT_4.Enabled = true;
+            TXT_5.Enabled = true;
+            TXT_6.Enabled = false;
             BTN_incluir.Enabled = true;
             BTN_alterar.Enabled = true;
             BTN_excluir.Enabled = true;
@@ -200,13 +198,12 @@ namespace Projeto_B
             TXT_4.Text = "";
             TXT_5.Text = "";
             TXT_6.Text = "";
-            LB_registros.Items.Clear();
-            TXT_2.ReadOnly = false;
-            TXT_3.ReadOnly = false;
-            TXT_4.ReadOnly = false;
-            TXT_5.ReadOnly = false;
-            TXT_6.ReadOnly = false;
+            LB_registros.Items.Clear();            
             TXT_2.Enabled = true;
+            TXT_3.Enabled = true;
+            TXT_4.Enabled = true;
+            TXT_5.Enabled = true;
+            TXT_6.Enabled = true;
             BTN_incluir.Enabled = true;
             BTN_alterar.Enabled = true;
             BTN_excluir.Enabled = true;
@@ -287,18 +284,18 @@ namespace Projeto_B
                 LB_registros.Items.Clear();
 
                 venda.cod = int.Parse(TXT_1.Text);
-                venda. = int.Parse(TXT_4.Text);
-                venda.nome = TXT_2.Text;
-                venda.valor = float.Parse(TXT_3.Text);
-                venda.secao = TXT_5.Text;
-                venda.descricao = TXT_6.Text;
+                venda.valor = float.Parse(TXT_2.Text);
+                venda.client = TXT_3.Text;
+                venda.prod = TXT_4.Text;
+                venda.qtd = int.Parse(TXT_5.Text);
+                venda.data = TXT_6.Text;
 
-                venda.criarProd(venda);
-                int ult = int.Parse(venda.lerUltimoProd());
+                venda.criarVenda(venda);
+                int ult = int.Parse(venda.lerUltimoVenda());
                 ult += 1;
                 TXT_1.Text = ult.ToString();
 
-                string[] tudo = venda.lerTodosProd().Split('\n');
+                string[] tudo = venda.lerTodosVendas().Split('\n');
 
                 for (int i = 0; i < tudo.Length - 1; i++)
                 {

@@ -22,10 +22,10 @@ namespace Projeto_B
         string arqTmp = @"c:/temp/arqTmp.dat";
         //------------------------------------------------------------------------
         //---CRIAR VENDA - parametros (classe vendas)
-        public void criarVenda(clientes client)
+        public void criarVenda(vendas venda)
         {
             StreamWriter gravar = new StreamWriter(arqVendas, true);
-            gravar.WriteLine(client.cod + ";" + client.cpf + ";" + client.nome + ";" + client.telefone + ";" + client.endereco + ";" + client.descricao);
+            gravar.WriteLine(venda.cod + ";" + venda.valor + ";" + venda.client + ";" + venda.prod + ";" + venda.qtd + ";" + venda.data);
             gravar.Close();
         }
         //------------------------------------------------------------------------
