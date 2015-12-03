@@ -748,6 +748,12 @@ namespace Projeto_B
 
             }
         }
+
+        private void alterarUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAlteraUser frm = new FrmAlteraUser();
+            frm.Show();
+        }
         //---FIM------------------------------------------------------------------------------
     }
 }

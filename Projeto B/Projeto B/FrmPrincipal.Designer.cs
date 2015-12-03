@@ -79,6 +79,7 @@
             this.Coluna4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Coluna5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Coluna6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.alterarUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -119,7 +120,8 @@
             this.usuáriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.novoUsuárioToolStripMenuItem,
             this.alterarSenhaToolStripMenuItem,
-            this.bloquearUsuárioToolStripMenuItem});
+            this.bloquearUsuárioToolStripMenuItem,
+            this.alterarUsuárioToolStripMenuItem});
             this.usuáriosToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
             this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
@@ -563,6 +565,13 @@
             this.Coluna6.Text = "Coluna6";
             this.Coluna6.Width = 100;
             // 
+            // alterarUsuárioToolStripMenuItem
+            // 
+            this.alterarUsuárioToolStripMenuItem.Name = "alterarUsuárioToolStripMenuItem";
+            this.alterarUsuárioToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.alterarUsuárioToolStripMenuItem.Text = "Alterar Usuário";
+            this.alterarUsuárioToolStripMenuItem.Click += new System.EventHandler(this.alterarUsuárioToolStripMenuItem_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -664,5 +673,6 @@
         private System.Windows.Forms.ColumnHeader Coluna4;
         private System.Windows.Forms.ColumnHeader Coluna5;
         private System.Windows.Forms.ColumnHeader Coluna6;
+        private System.Windows.Forms.ToolStripMenuItem alterarUsuárioToolStripMenuItem;
     }
 }
