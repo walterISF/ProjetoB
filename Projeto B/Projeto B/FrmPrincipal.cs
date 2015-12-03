@@ -27,6 +27,15 @@ namespace Projeto_B
             if (perfil == 2 || perfil == 3)
             {
                 extraToolStripMenuItem.Visible = false;
+                bloquearUsuárioToolStripMenuItem.Visible = false;
+                novoUsuárioToolStripMenuItem.Visible = false;
+            }
+            else if (perfil == 3)
+            {
+                extraToolStripMenuItem.Visible = false;
+                bloquearUsuárioToolStripMenuItem.Visible = false;
+                novoUsuárioToolStripMenuItem.Visible = false;
+                alterarUsuárioToolStripMenuItem.Visible = false;
             }
         }
 
@@ -702,6 +711,41 @@ namespace Projeto_B
                     float valor = preco * int.Parse(TXT_5.Text);
                     TXT_2.Text = valor.ToString();
                 }
+            }
+        }
+        private void TXT_4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (flag == 2)
+            {
+                if (char.IsNumber(e.KeyChar) || (e.KeyChar == (Char)Keys.Delete) || e.KeyChar == (char)Keys.Back)
+                {
+                    e.Handled = false;
+
+                }
+                else
+                {
+                    e.Handled = true;
+
+                }
+
+            }
+        }
+
+        private void TXT_3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (flag == 2)
+            {
+                if (char.IsNumber(e.KeyChar) || (e.KeyChar == (Char)Keys.Delete) || e.KeyChar == (char)Keys.Back)
+                {
+                    e.Handled = false;
+
+                }
+                else
+                {
+                    e.Handled = true;
+
+                }
+
             }
         }
         //---FIM------------------------------------------------------------------------------
