@@ -20,6 +20,13 @@ namespace Projeto_B
         private void FrmAlteraUser_Load(object sender, EventArgs e)
         {
             TXT_codigo.Focus();
+            usuarioLogado usuario = new usuarioLogado();
+            int perfil = usuario.getPerfil();
+            if (perfil == 3)
+            {
+                CBOX_perfil.Visible = false;
+                label4.Visible = false;
+            }
         }
 
         private void BTN_cancelar_Click(object sender, EventArgs e)

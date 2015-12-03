@@ -20,9 +20,9 @@ namespace Projeto_B
        
         //--------------------------------------------------------------
 
-        public static string arqUser = @"c:/temp/arqUser.txt";
-        public static string arqMortoUser = @"c:/temp/arqMortoUser.txt";
-        public static string arqTmp = @"c:/temp/arqTmp.txt";
+        public static string arqUser = @"c:/temp/arqUser.dat";
+        public static string arqMortoUser = @"c:/temp/arqMortoUser.dat";
+        public static string arqTmp = @"c:/temp/arqTmp.dat";
         
         //CRUD Usuarios
 
