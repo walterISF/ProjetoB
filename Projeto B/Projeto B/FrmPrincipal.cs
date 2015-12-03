@@ -13,7 +13,7 @@ namespace Projeto_B
 {
     public partial class FrmPrincipal : Form
     {
-        int flag = 0;
+        int flag = 0, codProd, codCliente;
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -283,7 +283,38 @@ namespace Projeto_B
             //--------------------------------------------------------------------------------------
             if (flag == 2)
             {
+                vendas venda = new vendas();
+                LB_registros.Items.Clear();
 
+                venda.cod = int.Parse(TXT_1.Text);
+                venda. = int.Parse(TXT_4.Text);
+                venda.nome = TXT_2.Text;
+                venda.valor = float.Parse(TXT_3.Text);
+                venda.secao = TXT_5.Text;
+                venda.descricao = TXT_6.Text;
+
+                venda.criarProd(venda);
+                int ult = int.Parse(venda.lerUltimoProd());
+                ult += 1;
+                TXT_1.Text = ult.ToString();
+
+                string[] tudo = venda.lerTodosProd().Split('\n');
+
+                for (int i = 0; i < tudo.Length - 1; i++)
+                {
+                    string[] linha = tudo[i].Split(';');
+                    LB_registros.Items.Add(linha[0], i);
+                    LB_registros.Items[i].SubItems.Add(linha[1]);
+                    LB_registros.Items[i].SubItems.Add(linha[2]);
+                    LB_registros.Items[i].SubItems.Add(linha[3]);
+                    LB_registros.Items[i].SubItems.Add(linha[4]);
+                    LB_registros.Items[i].SubItems.Add(linha[5]);
+                }
+                TXT_2.Text = "";
+                TXT_3.Text = "";
+                TXT_4.Text = "";
+                TXT_5.Text = "";
+                TXT_6.Text = "";
             }
             //--------------------------------------------------------------------------------------
             if (flag == 3)
@@ -621,7 +652,10 @@ namespace Projeto_B
                 string[] cli = client.lerCliente(int.Parse(TXT_3.Text)).Split(';');
 
                 if (cli[0] != "" && cli != null)
+                {
+                    codCliente = int.Parse(TXT_3.Text);
                     TXT_3.Text = cli[2];
+                }
                 else
                 {
                     MessageBox.Show("Cliente não encontrado", "Erro",
@@ -641,13 +675,32 @@ namespace Projeto_B
                 string[] produto = prod.lerProd(int.Parse(TXT_4.Text)).Split(';');
 
                 if (produto[0] != "" && produto != null)
+                {
+                    codProd = int.Parse(TXT_4.Text);
                     TXT_4.Text = produto[1];
+                }
                 else
                 {
                     MessageBox.Show("Produto não encontrado", "Erro",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
                     TXT_4.Text = "";
+                }
+            }
+        }
+
+        private void TXT_5_Leave(object sender, EventArgs e)
+        {
+            if (flag == 2)
+            {
+                produtos p = new produtos();
+                if (TXT_4.Text != "")
+                {
+
+                    string[] prod = p.lerProd(codProd).Split(';');
+                    float preco = float.Parse(prod[2]);
+                    float valor = preco * int.Parse(TXT_5.Text);
+                    TXT_2.Text = valor.ToString();
                 }
             }
         }

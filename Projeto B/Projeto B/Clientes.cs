@@ -106,7 +106,7 @@ namespace Projeto_B
         }
         /*
          * retornos:
-         * 0 = codigo do produto
+         * 0 = codigo do venda
          * 1 = cpf
          * 2 = nome
          * 3 = telefone

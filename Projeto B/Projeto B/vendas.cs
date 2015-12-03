@@ -14,7 +14,7 @@ namespace Projeto_B
         public string client;
         public string prod;        
         public int qtd;
-        public string descricao;
+        public string data;
         //------------------------------------------------------------------------
         //---ARQUIVO
         string arqVendas = @"c:/temp/arqVendas.dat";
@@ -107,10 +107,10 @@ namespace Projeto_B
         /*
          * 0 - codigo venda
          * 1 - valor
-         * 2 - produto
-         * 3 - produto
+         * 2 - cod cli
+         * 3 - cod pro
          * 4 - qtd
-         * 5 - descricao
+         * 5 - data
          */
         //----------------------------------------------------------------------
         //---ALTERAR VENDA - parametros (int cod venda, int campo para alterar, string novo campo) 2 param conforme tabela acima, retorna true para alteraçao bem sucedida e false para quando o campo ou o usario estao invalidos.

@@ -455,6 +455,7 @@
             this.TXT_5.Size = new System.Drawing.Size(215, 28);
             this.TXT_5.TabIndex = 5;
             this.TXT_5.TextChanged += new System.EventHandler(this.TXT_TextChanged);
+            this.TXT_5.Leave += new System.EventHandler(this.TXT_5_Leave);
             // 
             // LBL_5
             // 

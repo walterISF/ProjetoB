@@ -29,7 +29,7 @@ namespace Projeto_B
             gravar.Close();
         }
         //------------------------------------------------------------------------
-        //---LER PRODUTO - paramentros (int codigo do produto) - retorna a string com o produto se existir senão retorna uma string vazia "", a string deve ser partida pelo metodo .Split(';');
+        //---LER PRODUTO - paramentros (int codigo do venda) - retorna a string com o venda se existir senão retorna uma string vazia "", a string deve ser partida pelo metodo .Split(';');
         public string lerProd(int codClient)
         {
             StreamReader ler = new StreamReader(arqProd);
@@ -56,7 +56,7 @@ namespace Projeto_B
             return todas;
         }
         //-----------------------------------------------------------------------
-        //---LER ULTIMO PRODUTO - nao recebe parametros - retorna uma string com o codigo do ultimo produto cadastrado
+        //---LER ULTIMO PRODUTO - nao recebe parametros - retorna uma string com o codigo do ultimo venda cadastrado
         public string lerUltimoProd()
         {
             StreamReader ler = new StreamReader(arqProd);
@@ -114,7 +114,7 @@ namespace Projeto_B
          * 5 = descrição
          */
         //----------------------------------------------------------------------
-        //---ALTERAR PRODUTO - parametros (int cod produto, int campo para alterar, string novo campo) 2 param conforme tabela acima, retorna true para alteraçao bem sucedida e false para quando o campo ou o usario estao invalidos.
+        //---ALTERAR PRODUTO - parametros (int cod venda, int campo para alterar, string novo campo) 2 param conforme tabela acima, retorna true para alteraçao bem sucedida e false para quando o campo ou o usario estao invalidos.
         public bool alterarProduto(int codProd, int camp, string novo)
         {
             StreamReader ler = new StreamReader(arqProd);
