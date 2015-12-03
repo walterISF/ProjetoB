@@ -256,7 +256,7 @@
             // 
             // GPB_incluir
             // 
-            this.GPB_incluir.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.GPB_incluir.BackColor = System.Drawing.SystemColors.Control;
             this.GPB_incluir.Controls.Add(this.BTN_incluir);
             this.GPB_incluir.Controls.Add(this.label6);
             this.GPB_incluir.Location = new System.Drawing.Point(208, 31);
@@ -494,7 +494,7 @@
             // 
             // GPB_excluir
             // 
-            this.GPB_excluir.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.GPB_excluir.BackColor = System.Drawing.SystemColors.Control;
             this.GPB_excluir.Controls.Add(this.BTN_excluir);
             this.GPB_excluir.Controls.Add(this.label4);
             this.GPB_excluir.Location = new System.Drawing.Point(377, 32);
@@ -505,7 +505,7 @@
             // 
             // GPB_alterar
             // 
-            this.GPB_alterar.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.GPB_alterar.BackColor = System.Drawing.SystemColors.Control;
             this.GPB_alterar.Controls.Add(this.BTN_alterar);
             this.GPB_alterar.Controls.Add(this.label5);
             this.GPB_alterar.Location = new System.Drawing.Point(292, 33);

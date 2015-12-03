@@ -134,7 +134,7 @@ namespace Projeto_B
             LBL_3.Text = "Código do cliente";
             LBL_4.Text = "Código do Produto";
             LBL_5.Text = "Quantidade";
-            LBL_6.Text = "Descrição";
+            LBL_6.Text = "Data da compra";
             TXT_1.Text = "";
             TXT_2.Text = "";
             TXT_3.Text = "";
@@ -155,9 +155,12 @@ namespace Projeto_B
             Coluna3.Text = "Cliente";
             Coluna4.Text = "Produto";
             Coluna5.Text = "Quantidade";
-            Coluna6.Text = "Descrição";
+            Coluna6.Text = "Data da compra";
 
             vendas cod = new vendas();
+            DateTime data = DateTime.Today;
+
+            TXT_6.Text = data.ToShortDateString();
 
             string[] tudo = cod.lerTodosVendas().Split('\n');
 
@@ -165,10 +168,10 @@ namespace Projeto_B
             {
                 string[] linha = tudo[i].Split(';');
                 LB_registros.Items.Add(linha[0], i);
-                LB_registros.Items[i].SubItems.Add(linha[2]);
-                LB_registros.Items[i].SubItems.Add(linha[4]);
-                LB_registros.Items[i].SubItems.Add(linha[3]);
                 LB_registros.Items[i].SubItems.Add(linha[1]);
+                LB_registros.Items[i].SubItems.Add(linha[2]);
+                LB_registros.Items[i].SubItems.Add(linha[3]);
+                LB_registros.Items[i].SubItems.Add(linha[4]);
                 LB_registros.Items[i].SubItems.Add(linha[5]);
             }
 
@@ -280,6 +283,7 @@ namespace Projeto_B
             //--------------------------------------------------------------------------------------
             if (flag == 2)
             {
+                produtos prod = new produtos();
                 vendas venda = new vendas();
                 LB_registros.Items.Clear();
 
@@ -294,6 +298,11 @@ namespace Projeto_B
                 int ult = int.Parse(venda.lerUltimoVenda());
                 ult += 1;
                 TXT_1.Text = ult.ToString();
+
+                string[] produto = prod.lerProd(codProd).Split(';');
+                int qtdProd = int.Parse(produto[3]);
+                qtdProd -= venda.qtd;
+                prod.alterarProduto(codProd, 3, qtdProd.ToString());
 
                 string[] tudo = venda.lerTodosVendas().Split('\n');
 
@@ -354,6 +363,7 @@ namespace Projeto_B
 
         private void BTN_alterar_Click(object sender, EventArgs e)
         {
+            BTN_incluir.Enabled = true;
             if (flag == 1)
             {
                 produtos alt = new produtos();
@@ -376,15 +386,7 @@ namespace Projeto_B
                     if (altCliente[5] != TXT_6.Text)
                         alt.alterarProduto(int.Parse(TXT_1.Text), 5, TXT_6.Text);
                 }
-                /*
-         * retornos:
-         * 0 = codigo do exc
-         * 1 = quantidade
-         * 2 = nome
-         * 3 = valor
-         * 4 = secao
-         * 5 = descrição
-         */
+                
                 string[] tudo = alt.lerTodosProd().Split('\n');
 
                 for (int i = 0; i < tudo.Length - 1; i++)
@@ -437,10 +439,10 @@ namespace Projeto_B
                 {
                     string[] linha = tudo[i].Split(';');
                     LB_registros.Items.Add(linha[0], i);
-                    LB_registros.Items[i].SubItems.Add(linha[2]);
-                    LB_registros.Items[i].SubItems.Add(linha[4]);
-                    LB_registros.Items[i].SubItems.Add(linha[3]);
                     LB_registros.Items[i].SubItems.Add(linha[1]);
+                    LB_registros.Items[i].SubItems.Add(linha[2]);
+                    LB_registros.Items[i].SubItems.Add(linha[3]);
+                    LB_registros.Items[i].SubItems.Add(linha[4]);
                     LB_registros.Items[i].SubItems.Add(linha[5]);
                 }
                 int ult = int.Parse(alt.lerUltimoVenda());
@@ -503,6 +505,7 @@ namespace Projeto_B
 
         private void BTN_excluir_Click(object sender, EventArgs e)
         {
+            BTN_incluir.Enabled = true;
             if (flag == 1)
             {
                 produtos exc = new produtos();
